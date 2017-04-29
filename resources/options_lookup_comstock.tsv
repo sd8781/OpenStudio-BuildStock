@@ -1,0 +1,243 @@
+# Note: The order of the parameters dictates the order in which the OpenStudio measures are run.																										
+Parameter Name	Option Name	Measure Dir	Measure Arg 1	Measure Arg 2	...																					
+division	1																									
+division	2																									
+division	3																									
+division	4																									
+division	5																									
+division	6																									
+division	7																									
+division	8																									
+division	9																									
+location	ny_whiteplains	ChangeBuildingLocation	weather_directory=../../../../weather	weather_file_name=USA_NY_White.Plains-Westchester.County.AP.725037_TMY3.epw	climate_zone=5A																					
+hz_bldg_type	res1i																									
+hz_bldg_type	res2i																									
+hz_bldg_type	res3ai																									
+hz_bldg_type	res3bi																									
+hz_bldg_type	res3ci																									
+hz_bldg_type	res3di																									
+hz_bldg_type	res3ei																									
+hz_bldg_type	res3fi																									
+hz_bldg_type	res4i																									
+hz_bldg_type	res5i																									
+hz_bldg_type	res6i																									
+hz_bldg_type	com1i																									
+hz_bldg_type	com2i																									
+hz_bldg_type	com3i																									
+hz_bldg_type	com4i																									
+hz_bldg_type	com5i																									
+hz_bldg_type	com6i																									
+hz_bldg_type	com7i																									
+hz_bldg_type	com8i																									
+hz_bldg_type	com9i																									
+hz_bldg_type	com10i																									
+hz_bldg_type	ind1i																									
+hz_bldg_type	ind2i																									
+hz_bldg_type	ind3i																									
+hz_bldg_type	ind4i																									
+hz_bldg_type	ind5i																									
+hz_bldg_type	ind6i																									
+hz_bldg_type	agr1i																									
+hz_bldg_type	rel1i																									
+hz_bldg_type	gov1i																									
+hz_bldg_type	gov2i																									
+hz_bldg_type	edu1i																									
+hz_bldg_type	edu2i																									
+proto_bldg_type	full_service_restaurant	create_bar_from_building_type_ratios	bldg_type_a=FullServiceRestaurant	bldg_type_a_num_units=1	bldg_type_b=FullServiceRestaurant	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=FullServiceRestaurant	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=FullServiceRestaurant	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=FullServiceRestaurant																							
+proto_bldg_type	hospital	create_bar_from_building_type_ratios	bldg_type_a=Hospital	bldg_type_a_num_units=1	bldg_type_b=Hospital	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=Hospital	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=Hospital	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=Hospital																							
+proto_bldg_type	large_hotel	create_bar_from_building_type_ratios	bldg_type_a=LargeHotel	bldg_type_a_num_units=1	bldg_type_b=LargeHotel	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=LargeHotel	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=LargeHotel	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=LargeHotel																							
+proto_bldg_type	midrise_apartment	create_bar_from_building_type_ratios	bldg_type_a=MidriseApartment	bldg_type_a_num_units=1	bldg_type_b=MidriseApartment	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=MidriseApartment	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=MidriseApartment	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=MidriseApartment																							
+proto_bldg_type	highrise_apartment	create_bar_from_building_type_ratios	bldg_type_a=HighriseApartment	bldg_type_a_num_units=1	bldg_type_b=HighriseApartment	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=HighriseApartment	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=HighriseApartment	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=HighriseApartment																							
+proto_bldg_type	outpatient	create_bar_from_building_type_ratios	bldg_type_a=Outpatient	bldg_type_a_num_units=1	bldg_type_b=Outpatient	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=Outpatient	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=Outpatient	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=Outpatient																							
+proto_bldg_type	primary_school	create_bar_from_building_type_ratios	bldg_type_a=PrimarySchool	bldg_type_a_num_units=1	bldg_type_b=PrimarySchool	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=PrimarySchool	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=PrimarySchool	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=PrimarySchool																							
+proto_bldg_type	quick_service_restaurant	create_bar_from_building_type_ratios	bldg_type_a=QuickServiceRestaurant	bldg_type_a_num_units=1	bldg_type_b=QuickServiceRestaurant	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=QuickServiceRestaurant	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=QuickServiceRestaurant	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=QuickServiceRestaurant																							
+proto_bldg_type	retail	create_bar_from_building_type_ratios	bldg_type_a=RetailStandalone	bldg_type_a_num_units=1	bldg_type_b=RetailStandalone	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=RetailStandalone	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=RetailStandalone	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=RetailStandalone																							
+proto_bldg_type	secondary_school	create_bar_from_building_type_ratios	bldg_type_a=SecondarySchool	bldg_type_a_num_units=1	bldg_type_b=SecondarySchool	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=SecondarySchool	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=SecondarySchool	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=SecondarySchool																							
+proto_bldg_type	small_hotel	create_bar_from_building_type_ratios	bldg_type_a=SmallHotel	bldg_type_a_num_units=1	bldg_type_b=SmallHotel	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=SmallHotel	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=SmallHotel	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=SmallHotel																							
+proto_bldg_type	strip_mall	create_bar_from_building_type_ratios	bldg_type_a=RetailStripmall	bldg_type_a_num_units=1	bldg_type_b=RetailStripmall	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=RetailStripmall	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=RetailStripmall	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=RetailStripmall																							
+proto_bldg_type	super_market	create_bar_from_building_type_ratios	bldg_type_a=SuperMarket	bldg_type_a_num_units=1	bldg_type_b=SuperMarket	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=SuperMarket	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=SuperMarket	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=SuperMarket																							
+proto_bldg_type	warehouse	create_bar_from_building_type_ratios	bldg_type_a=Warehouse	bldg_type_a_num_units=1	bldg_type_b=Warehouse	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=Warehouse	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=Warehouse	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=Warehouse																							
+proto_bldg_type	small_office	create_bar_from_building_type_ratios	bldg_type_a=SmallOffice	bldg_type_a_num_units=1	bldg_type_b=SmallOffice	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=SmallOffice	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=SmallOffice	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=SmallOffice																							
+proto_bldg_type	medium_office	create_bar_from_building_type_ratios	bldg_type_a=MediumOffice	bldg_type_a_num_units=1	bldg_type_b=MediumOffice	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=MediumOffice	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=MediumOffice	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=MediumOffice																							
+proto_bldg_type	large_office	create_bar_from_building_type_ratios	bldg_type_a=LargeOffice	bldg_type_a_num_units=1	bldg_type_b=LargeOffice	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=LargeOffice	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=LargeOffice	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=LargeOffice																							
+proto_bldg_type	no_match	create_bar_from_building_type_ratios	bldg_type_a=SmallOffice	bldg_type_a_num_units=1	bldg_type_b=SmallOffice	bldg_type_b_fract_bldg_area=0	bldg_type_b_num_units=1	bldg_type_c=SmallOffice	bldg_type_c_fract_bldg_area=0	bldg_type_c_num_units=1	bldg_type_d=SmallOffice	bldg_type_d_fract_bldg_area=0	bldg_type_d_num_units=1	total_bldg_floor_area=5000	num_stories_below_grade=0	wwr=0.3	party_wall_fraction=0	story_multiplier=None	bar_division_method=Multiple Space Types - Individual Stories Sliced	party_wall_stories_north=0	party_wall_stories_south=0	party_wall_stories_east=0	party_wall_stories_west=0	bottom_story_ground_exposed_floor=true	top_story_exterior_exposed_roof=true	make_mid_story_surfaces_adiabatic=false
+		create_typical_building_from_model	building_type=SmallOffice																							
+vintage	pre_1920																									
+vintage	1920_1945																									
+vintage	1946_1959																									
+vintage	1960_1969																									
+vintage	1970_1979																									
+vintage	1980_1989																									
+vintage	1990_1999																									
+vintage	2000_2003																									
+vintage	2004_2007																									
+vintage	2008_2012																									
+code	pre_1980	create_bar_from_building_type_ratios	template=DOE Ref Pre-1980																							
+		create_typical_building_from_model	template=DOE Ref Pre-1980																							
+code	1980_2004	create_bar_from_building_type_ratios	template=DOE Ref 1980-2004																							
+		create_typical_building_from_model	template=DOE Ref 1980-2004																							
+code	2004_2007	create_bar_from_building_type_ratios	template=90.1-2004																							
+		create_typical_building_from_model	template=90.1-2004																							
+code	2007_2010	create_bar_from_building_type_ratios	template=90.1-2007																							
+		create_typical_building_from_model	template=90.1-2007																							
+code	2010_2013	create_bar_from_building_type_ratios	template=90.1-2010																							
+		create_typical_building_from_model	template=90.1-2010																							
+code	post_2013	create_bar_from_building_type_ratios	template=90.1-2013																							
+		create_typical_building_from_model	template=90.1-2013																							
+flceilht	6	create_bar_from_building_type_ratios	floor_height=6																							
+flceilht	7	create_bar_from_building_type_ratios	floor_height=7																							
+flceilht	8	create_bar_from_building_type_ratios	floor_height=8																							
+flceilht	9	create_bar_from_building_type_ratios	floor_height=9																							
+flceilht	10	create_bar_from_building_type_ratios	floor_height=10																							
+flceilht	11	create_bar_from_building_type_ratios	floor_height=11																							
+flceilht	12	create_bar_from_building_type_ratios	floor_height=12																							
+flceilht	13	create_bar_from_building_type_ratios	floor_height=13																							
+flceilht	14	create_bar_from_building_type_ratios	floor_height=14																							
+flceilht	15	create_bar_from_building_type_ratios	floor_height=15																							
+flceilht	16	create_bar_from_building_type_ratios	floor_height=16																							
+flceilht	17	create_bar_from_building_type_ratios	floor_height=17																							
+flceilht	18	create_bar_from_building_type_ratios	floor_height=18																							
+flceilht	19	create_bar_from_building_type_ratios	floor_height=19																							
+flceilht	20	create_bar_from_building_type_ratios	floor_height=20																							
+flceilht	21	create_bar_from_building_type_ratios	floor_height=21																							
+flceilht	22	create_bar_from_building_type_ratios	floor_height=22																							
+flceilht	23	create_bar_from_building_type_ratios	floor_height=23																							
+flceilht	24	create_bar_from_building_type_ratios	floor_height=24																							
+flceilht	25	create_bar_from_building_type_ratios	floor_height=25																							
+flceilht	26	create_bar_from_building_type_ratios	floor_height=26																							
+flceilht	27	create_bar_from_building_type_ratios	floor_height=27																							
+flceilht	28	create_bar_from_building_type_ratios	floor_height=28																							
+flceilht	29	create_bar_from_building_type_ratios	floor_height=29																							
+flceilht	30	create_bar_from_building_type_ratios	floor_height=30																							
+flceilht	31	create_bar_from_building_type_ratios	floor_height=31																							
+flceilht	32	create_bar_from_building_type_ratios	floor_height=32																							
+flceilht	33	create_bar_from_building_type_ratios	floor_height=33																							
+flceilht	34	create_bar_from_building_type_ratios	floor_height=34																							
+flceilht	35	create_bar_from_building_type_ratios	floor_height=35																							
+flceilht	36	create_bar_from_building_type_ratios	floor_height=36																							
+flceilht	37	create_bar_from_building_type_ratios	floor_height=37																							
+flceilht	38	create_bar_from_building_type_ratios	floor_height=38																							
+flceilht	39	create_bar_from_building_type_ratios	floor_height=39																							
+flceilht	40	create_bar_from_building_type_ratios	floor_height=40																							
+flceilht	41	create_bar_from_building_type_ratios	floor_height=41																							
+flceilht	42	create_bar_from_building_type_ratios	floor_height=42																							
+flceilht	43	create_bar_from_building_type_ratios	floor_height=43																							
+flceilht	44	create_bar_from_building_type_ratios	floor_height=44																							
+flceilht	45	create_bar_from_building_type_ratios	floor_height=45																							
+flceilht	46	create_bar_from_building_type_ratios	floor_height=46																							
+flceilht	47	create_bar_from_building_type_ratios	floor_height=47																							
+flceilht	48	create_bar_from_building_type_ratios	floor_height=48																							
+flceilht	49	create_bar_from_building_type_ratios	floor_height=49																							
+flceilht	50	create_bar_from_building_type_ratios	floor_height=50																							
+flceilht	over_50	create_bar_from_building_type_ratios	floor_height=55																							
+num_floors	1	create_bar_from_building_type_ratios	num_stories_above_grade=1																							
+num_floors	2	create_bar_from_building_type_ratios	num_stories_above_grade=2																							
+num_floors	3	create_bar_from_building_type_ratios	num_stories_above_grade=3																							
+num_floors	4	create_bar_from_building_type_ratios	num_stories_above_grade=4																							
+num_floors	5	create_bar_from_building_type_ratios	num_stories_above_grade=5																							
+num_floors	6	create_bar_from_building_type_ratios	num_stories_above_grade=6																							
+num_floors	7	create_bar_from_building_type_ratios	num_stories_above_grade=7																							
+num_floors	8	create_bar_from_building_type_ratios	num_stories_above_grade=8																							
+num_floors	9	create_bar_from_building_type_ratios	num_stories_above_grade=9																							
+num_floors	10	create_bar_from_building_type_ratios	num_stories_above_grade=10																							
+num_floors	11	create_bar_from_building_type_ratios	num_stories_above_grade=11																							
+num_floors	12	create_bar_from_building_type_ratios	num_stories_above_grade=12																							
+num_floors	13	create_bar_from_building_type_ratios	num_stories_above_grade=13																							
+num_floors	14	create_bar_from_building_type_ratios	num_stories_above_grade=14																							
+num_floors	15_25	create_bar_from_building_type_ratios	num_stories_above_grade=20																							
+num_floors	over_25	create_bar_from_building_type_ratios	num_stories_above_grade=30																							
+bldsh	1																									
+bldsh	2																									
+bldsh	3																									
+bldsh	4																									
+bldsh	5																									
+bldsh	6																									
+bldsh	7																									
+bldsh	8																									
+bldsh	9																									
+bldsh	10																									
+bldsh	11																									
+bldsh	missing																									
+aspect_ratio	1	create_bar_from_building_type_ratios	ns_to_ew_ratio=1																							
+aspect_ratio	2	create_bar_from_building_type_ratios	ns_to_ew_ratio=2																							
+aspect_ratio	3	create_bar_from_building_type_ratios	ns_to_ew_ratio=3																							
+aspect_ratio	4	create_bar_from_building_type_ratios	ns_to_ew_ratio=4																							
+aspect_ratio	5	create_bar_from_building_type_ratios	ns_to_ew_ratio=5																							
+aspect_ratio	6	create_bar_from_building_type_ratios	ns_to_ew_ratio=6																							
+rotation	0	create_bar_from_building_type_ratios	building_rotation=0																							
+rotation	45	create_bar_from_building_type_ratios	building_rotation=45																							
+rotation	90	create_bar_from_building_type_ratios	building_rotation=90																							
+rotation	135	create_bar_from_building_type_ratios	building_rotation=135																							
+rotation	180	create_bar_from_building_type_ratios	building_rotation=180																							
+rotation	225	create_bar_from_building_type_ratios	building_rotation=225																							
+rotation	270	create_bar_from_building_type_ratios	building_rotation=270																							
+rotation	315	create_bar_from_building_type_ratios	building_rotation=315																							
+hvac_sysid	1	create_typical_building_from_model	system_type=PTAC w/ hot water heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	2	create_typical_building_from_model	system_type=PTHP	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	3	create_typical_building_from_model	system_type=PSZ-AC w/ gas coil heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	4	create_typical_building_from_model	system_type=PSZ-HP	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	5	create_typical_building_from_model	system_type=PVAV w/ reheat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	6	create_typical_building_from_model	system_type=PVAV w/ PFP boxes	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	7	create_typical_building_from_model	system_type=VAV w/ reheat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	8	create_typical_building_from_model	system_type= TODO VAV w/PFP boxes	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	9	create_typical_building_from_model	system_type=Residential forced air	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	10	create_typical_building_from_model	system_type= TODO Residential heat pump	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	11	create_typical_building_from_model	system_type=Window AC w/ forced air furnace	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	12	create_typical_building_from_model	system_type=Window AC w/ district hot water baseboard heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	13	create_typical_building_from_model	system_type=Window AC w/ unit heaters	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	14	create_typical_building_from_model	system_type=Window AC w/ electric baseboard heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	15	create_typical_building_from_model	system_type=Window AC w/ no heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	16	create_typical_building_from_model	system_type= TODO Residential forced air cooling hot water baseboards	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	17	create_typical_building_from_model	system_type= TODO Residential forced air w/district hot water	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	18	create_typical_building_from_model	system_type=Window AC w/ district hot water baseboard heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	19	create_typical_building_from_model	system_type= TODO Forced air furnace	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	20	create_typical_building_from_model	system_type= TODO Forced air furnace district chilled water fan coil	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	21	create_typical_building_from_model	system_type= TODO Residential AC w/ no heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	22	create_typical_building_from_model	system_type=PSZ-AC w/ electric baseboard heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	23	create_typical_building_from_model	system_type= TODO Residential AC w/electric baseboards	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	24	create_typical_building_from_model	system_type=PSZ-AC w/ no heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	25	create_typical_building_from_model	system_type= TODO VAV w/ gas reheat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	26	create_typical_building_from_model	system_type= TODO VAV w/ zone unit heaters	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	27	create_typical_building_from_model	system_type= TODO VAV w/ electric baseboards	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	28	create_typical_building_from_model	system_type= TODO VAV cool with zone heat pump heating	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	29	create_typical_building_from_model	system_type=Baseboard hot water heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	30	create_typical_building_from_model	system_type=Unit heaters	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	31	create_typical_building_from_model	system_type=Baseboard electric heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	32	create_typical_building_from_model	system_type= TODO Heat pump heating	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	33	create_typical_building_from_model	system_type=PTAC w/ gas coil heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	34	create_typical_building_from_model	system_type=PTAC w/ electric baseboard heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	35	create_typical_building_from_model	system_type=PTAC w/ no heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	36	create_typical_building_from_model	system_type=PTAC w/ district hot water heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	37	create_typical_building_from_model	system_type=Baseboard district hot water heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	38	create_typical_building_from_model	system_type=PSZ-AC w/district hot water heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	39	create_typical_building_from_model	system_type=Fan coil district chilled water w/ no heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	40	create_typical_building_from_model	system_type=Fan coil district chilled water and boiler	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	41	create_typical_building_from_model	system_type=Fan coil district chilled water unit heaters	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	42	create_typical_building_from_model	system_type=Fan coil district chilled water electric baseboard heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	43	create_typical_building_from_model	system_type=Fan coil district hot and cold water	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	44	create_typical_building_from_model	system_type=Fan coil district hot water and chiller	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	45	create_typical_building_from_model	system_type=Fan coil chiller w/ no heat	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	46	create_typical_building_from_model	system_type=Direct evap coolers	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	47	create_typical_building_from_model	system_type= TODO Forced air furnace direct evap cooler	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	48	create_typical_building_from_model	system_type=Baseboard hot water heat w/ direct evap coolers	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	49	create_typical_building_from_model	system_type=Direct evap coolers w/ unit heaters	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	50	create_typical_building_from_model	system_type=Baseboard electric heat w/ direct evap coolers	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	51	create_typical_building_from_model	system_type= TODO Heat pump heating direct evap cooler	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
+hvac_sysid	52	create_typical_building_from_model	system_type=Baseboard district hot water heat w/ direct evap coolers	hvac_delivery_type=Forced Air	htg_src=NaturalGas	clg_src=Electricity	fuel_type_swh=Infer from HVAC System Type	fuel_type_cooking=Gas	fuel_type_laundry=Electric	kitchen_makeup=Adjacent	exterior_lighting_zone=3 - All Other Areas	add_elevators=true	add_exterior_lights=true	add_exhaust=true	add_swh=true											
