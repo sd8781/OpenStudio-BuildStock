@@ -8,15 +8,15 @@ require_relative '../resources/helper_methods'
 
 class RunSampling
 
-    def run(project_dir_name, num_samples)
+    def run(project_dir_name, num_samples, characteristics_dir_name='housing_characteristics', options_lookup_name='options_lookup')
         
         resources_dir = File.absolute_path(File.join(File.dirname(__FILE__), '..', 'resources')) # Should have been uploaded per 'Additional Analysis Files' in PAT
-        characteristics_dir = File.absolute_path(File.join(File.dirname(__FILE__), '..', 'housing_characteristics')) # Should have been uploaded per 'Additional Analysis Files' in PAT
+        characteristics_dir = File.absolute_path(File.join(File.dirname(__FILE__), '..', characteristics_dir_name)) # Should have been uploaded per 'Additional Analysis Files' in PAT
         if not File.exists?(characteristics_dir)
             characteristics_dir = File.absolute_path(File.join(File.dirname(__FILE__), '..', project_dir_name, 'housing_characteristics')) # Being run locally?
         end
         
-        params = get_parameters_ordered_from_options_lookup_tsv(resources_dir)
+        params = get_parameters_ordered_from_options_lookup_tsv(resources_dir, characteristics_dir, options_lookup_name)
         
         tsvfiles = {}
         params.each do |param|
@@ -303,6 +303,3 @@ class RunSampling
     end
 
 end
-
-#r = RunSampling.new
-#r.run('project_resstock_testing',100)

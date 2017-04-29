@@ -60,25 +60,31 @@ task :copy_beopt_files do
   end
 end
 
-desc 'Perform integrity check on inputs for all projects'
-task :integrity_check_all do
+desc 'Perform integrity check on inputs'
+task :integrity_check do
+  project_name = select_project
+  puts "Integrity checking : #{project_name}"
+  case project_name
+  when 'all'
     integrity_check()
+  else
+    integrity_check(project_name)
+  end
 end # rake task
 
-desc 'Perform integrity check on inputs for project_resstock_national'
-task :integrity_check_resstock_national do
-    integrity_check(['project_resstock_national'])
-end # rake task
-
-desc 'Perform integrity check on inputs for project_resstock_pnw'
-task :integrity_check_resstock_pnw do
-    integrity_check(['project_resstock_pnw'])
-end # rake task
-
-desc 'Perform integrity check on inputs for project_resstock_testing'
-task :integrity_check_resstock_testing do
-    integrity_check(['project_resstock_testing'])
-end # rake task
+desc 'Run sampling'
+task :sampling do
+  require_relative 'resources/run_sampling'
+  project_name = select_project
+  puts "Running sampling for: #{project_name}"
+  options_lookup = if project_name.include?('comstock')
+                     'options_lookup_comstock'
+                   else
+                     'options_lookup'
+                   end
+  r = RunSampling.new
+  r.run(project_name,100,'housing_characteristics', options_lookup)
+end
 
 def integrity_check(project_dir_names=nil)
   require 'openstudio'
@@ -248,9 +254,30 @@ end
 def get_all_project_dir_names()
     project_dir_names = []
     Dir.entries(File.dirname(__FILE__)).each do |entry|
-        next if not Dir.exist?(entry)
-        next if not entry.start_with?("project_")
+        next unless Dir.exist?(entry)
+        next unless entry.start_with?("project_")
         project_dir_names << entry
     end
     return project_dir_names
+end
+
+# Prompts user to select project from list via
+# entering an index in the command prompt.
+def select_project
+  puts
+  puts 'Select project from the list below:'
+  projects = get_all_project_dir_names
+  projects.each_index do |i|
+    puts "  #{i + 1}) #{File.basename(projects[i])}"
+  end
+  puts
+  print "Selection (1-#{projects.size}): "
+  n = $stdin.gets.chomp
+  n_i = n.to_i
+  if n_i == 0 || n_i > projects.size
+    puts "Could not process your selection. You entered '#{n}'"
+    exit
+  end
+
+  return projects[n_i - 1]
 end
