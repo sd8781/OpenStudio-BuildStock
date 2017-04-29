@@ -1,0 +1,11 @@
+Dependency=location	Dependency=vintage	code=pre_1980	code=1980_2004	code=2004_2007	code=2007_2010	code=2010_2013	code=post_2013
+ny_whiteplains	pre_1920	1	0	0	0	0	0
+ny_whiteplains	1920_1945	1	0	0	0	0	0
+ny_whiteplains	1946_1959	1	0	0	0	0	0
+ny_whiteplains	1960_1969	1	0	0	0	0	0
+ny_whiteplains	1970_1979	1	0	0	0	0	0
+ny_whiteplains	1980_1989	1	0	0	0	0	0
+ny_whiteplains	1990_1999	0	1	0	0	0	0
+ny_whiteplains	2000_2003	0	1	0	0	0	0
+ny_whiteplains	2004_2007	0	1	0	0	0	0
+ny_whiteplains	2008_2012	0	0	0	0	1	0
