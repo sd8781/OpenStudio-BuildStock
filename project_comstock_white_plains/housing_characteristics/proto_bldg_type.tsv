@@ -1,4 +1,4 @@
-Dependency=hz_bldg_type	proto_bldg_type=full_service_restaurant	proto_bldg_type=hospital	proto_bldg_type=large_hotel	proto_bldg_type=midrise_apartment	proto_bldg_type=highrise_apartment	proto_bldg_type=outpatient	proto_bldg_type=primary_school	proto_bldg_type=quick_service_restaurant	proto_bldg_type=retail	proto_bldg_type=secondary_school	proto_bldg_type=small_hotel	proto_bldg_type=strip_mall	proto_bldg_type=super_market	proto_bldg_type=warehouse	proto_bldg_type=small_office	proto_bldg_type=medium_office	proto_bldg_type=large_office	proto_bldg_type=no_match
+Dependency=hz_bldg_type	Option=full_service_restaurant	Option=hospital	Option=large_hotel	Option=midrise_apartment	Option=highrise_apartment	Option=outpatient	Option=primary_school	Option=quick_service_restaurant	Option=retail	Option=secondary_school	Option=small_hotel	Option=strip_mall	Option=super_market	Option=warehouse	Option=small_office	Option=medium_office	Option=large_office	Option=no_match
 res1i	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1
 res2i	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1
 res3ai	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1

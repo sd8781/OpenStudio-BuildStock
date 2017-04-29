@@ -1,4 +1,4 @@
-Dependency=proto_bldg_type	sqft=_1000	sqft=1001_5000	sqft=5001_10000	sqft=10001_25000	sqft=25001_50000	sqft=50001_100000	sqft=100001_200000	sqft=200001_500000	sqft=500001_1mil	sqft=over_1mil
+Dependency=proto_bldg_type	Option=_1000	Option=1001_5000	Option=5001_10000	Option=10001_25000	Option=25001_50000	Option=50001_100000	Option=100001_200000	Option=200001_500000	Option=500001_1mil	Option=over_1mil
 full_service_restaurant		" 2	954.0 "	" 7	230.4 "	" 14	989.0 "	" 33	000.0 "	" 78	925.5 "				
 hospital				" 22	105.2 "	" 37	461.5 "	" 74	702.8 "	" 145	646.5 "	" 313	009.5 "	" 740	481.6 "	" 1	438	445.2 "
 large_hotel		" 2	540.4 "	" 7	416.9 "	" 15	742.0 "	" 36	789.1 "	" 64	401.2 "	" 131	624.8 "	" 300	781.6 "	" 626	627.9 "	" 1	479	067.5 "

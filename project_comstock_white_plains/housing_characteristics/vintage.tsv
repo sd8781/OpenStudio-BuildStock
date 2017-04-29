@@ -1,4 +1,4 @@
-Dependency=division	Dependency=proto_bldg_type	vintage=pre_1920	vintage=1920_1945	vintage=1946_1959	vintage=1960_1969	vintage=1970_1979	vintage=1980_1989	vintage=1990_1999	vintage=2000_2003	vintage=2004_2007	vintage=2008_2012
+Dependency=division	Dependency=proto_bldg_type	Option=pre_1920	Option=1920_1945	Option=1946_1959	Option=1960_1969	Option=1970_1979	Option=1980_1989	Option=1990_1999	Option=2000_2003	Option=2004_2007	Option=2008_2012
 1	full_service_restaurant	0.266780108	0	0.221533863	0	0.276594839	0.095813024	0	0.118438785	0.02083938	0
 1	hospital	0	0	0.325202604	0.032795151	0.344263203	0	0.285507392	0	0.01223165	0
 1	large_hotel	0	0	0	0.054149522	0	0.945850478	0	0	0	0

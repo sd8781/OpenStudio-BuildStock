@@ -1,4 +1,4 @@
-Dependency=proto_bldg_type	num_floors=1	num_floors=2	num_floors=3	num_floors=4	num_floors=5	num_floors=6	num_floors=7	num_floors=8	num_floors=9	num_floors=10	num_floors=11	num_floors=12	num_floors=13	num_floors=14	num_floors=15_25	num_floors=over_25
+Dependency=proto_bldg_type	Option=1	Option=2	Option=3	Option=4	Option=5	Option=6	Option=7	Option=8	Option=9	Option=10	Option=11	Option=12	Option=13	Option=14	Option=15_25	Option=over_25
 full_service_restaurant	0.68627017	0.202754375	0.088173773	0.015570632	0.007231049	0	0	0	0	0	0	0	0	0	0	0
 hospital	0.251888503	0.167977648	0.080282952	0.112369563	0.061751915	0.126589912	0.08246218	0.032825222	0.022118261	0.015193337	0.010428272	0.00812414	0.009973957	0.004678029	0.012782233	0.000553876
 large_hotel	0.061677377	0.284668148	0.255169487	0.154108529	0.073427486	0.037522251	0.0126298	0.04101152	0.00744543	0.008997671	0.005215243	0.003335428	0.007722483	0.00901678	0.029858108	0.008194261
