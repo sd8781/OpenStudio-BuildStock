@@ -1,5 +1,3 @@
-require 'bundler'
-Bundler.setup
 
 desc 'Copy measures/osms from OpenStudio-BEopt repo'
 task :copy_beopt_files do
