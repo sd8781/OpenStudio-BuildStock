@@ -32,7 +32,7 @@ class RunSampling
 
         params = update_parameter_dependencies(params, tsvfiles)
         sample_results = perform_sampling(params, num_samples, tsvfiles, project_dir_name).transpose
-        out_file = write_csv(sample_results, project_dir_name)
+        out_file = write_csv(sample_results)
         return out_file
     end
 
@@ -290,14 +290,9 @@ class RunSampling
         return random_seed + 1
     end
 
-    def write_csv(sample_results, project_dir_name='')
+    def write_csv(sample_results)
         # Writes the csv output file.
-        file_name = if project_dir_name.include?('comstock')
-                        'comstock'
-                      else
-                        'buildstock'
-                      end
-        out_file = File.absolute_path(File.join(File.dirname(__FILE__), "#{file_name}.csv"))
+        out_file = File.absolute_path(File.join(File.dirname(__FILE__), 'buildstock.csv'))
         CSV.open(out_file, 'w') do |csv_object|
           sample_results.each do |sample_result|
             csv_object << sample_result
