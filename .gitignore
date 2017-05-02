@@ -56,3 +56,11 @@ analysis_results/data_points/
 /project_resstock_pnw/project_resstock_pnw.zip
 /project_resstock_testing/project_resstock_testing.json
 /project_resstock_testing/project_resstock_testing.zip
+/**/logs
+/**/data
+/**/*.pid
+/**/local_configuration.json
+/**/local_configuration.receipt
+/**/project_*.zip
+/**/project_*.json
+
