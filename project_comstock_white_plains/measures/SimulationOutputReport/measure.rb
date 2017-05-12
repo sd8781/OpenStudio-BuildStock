@@ -21,37 +21,37 @@ class SimulationOutputReport < OpenStudio::Ruleset::ReportingUserScript
   end #end the arguments method
   
   def outputs
-    resstock_outputs = [
-                        "total_site_energy_mbtu",
-                        "total_site_electricity_kwh",
-                        "total_site_natural_gas_therm",
-                        "total_site_other_fuel_mbtu",
-                        "net_site_energy_mbtu", # Incorporates PV
-                        "net_site_electricity_kwh", # Incorporates PV
-                        "electricity_heating_kwh",
-                        "electricity_cooling_kwh",
-                        "electricity_interior_lighting_kwh",
-                        "electricity_exterior_lighting_kwh",
-                        "electricity_interior_equipment_kwh",
-                        "electricity_fans_kwh",
-                        "electricity_pumps_kwh",
-                        "electricity_water_systems_kwh",
-                        "electricity_pv_kwh",
-                        "natural_gas_heating_therm",
-                        "natural_gas_interior_equipment_therm",
-                        "natural_gas_water_systems_therm",
-                        "other_fuel_heating_mbtu",
-                        "other_fuel_interior_equipment_mbtu",
-                        "other_fuel_water_systems_mbtu",
-                        "hours_heating_setpoint_not_met",
-                        "hours_cooling_setpoint_not_met",
-                        "hvac_cooling_capacity_w",
-                        "hvac_heating_capacity_w",
-                        "upgrade_cost_usd",
-                        "weight"
-                       ]
+    buildstock_outputs = [
+                          "total_site_energy_mbtu",
+                          "total_site_electricity_kwh",
+                          "total_site_natural_gas_therm",
+                          "total_site_other_fuel_mbtu",
+                          "net_site_energy_mbtu", # Incorporates PV
+                          "net_site_electricity_kwh", # Incorporates PV
+                          "electricity_heating_kwh",
+                          "electricity_cooling_kwh",
+                          "electricity_interior_lighting_kwh",
+                          "electricity_exterior_lighting_kwh",
+                          "electricity_interior_equipment_kwh",
+                          "electricity_fans_kwh",
+                          "electricity_pumps_kwh",
+                          "electricity_water_systems_kwh",
+                          "electricity_pv_kwh",
+                          "natural_gas_heating_therm",
+                          "natural_gas_interior_equipment_therm",
+                          "natural_gas_water_systems_therm",
+                          "other_fuel_heating_mbtu",
+                          "other_fuel_interior_equipment_mbtu",
+                          "other_fuel_water_systems_mbtu",
+                          "hours_heating_setpoint_not_met",
+                          "hours_cooling_setpoint_not_met",
+                          "hvac_cooling_capacity_w",
+                          "hvac_heating_capacity_w",
+                          "upgrade_cost_usd",
+                          "weight"
+                         ]
     result = OpenStudio::Measure::OSOutputVector.new
-    resstock_outputs.each do |output|
+    buildstock_outputs.each do |output|
         result << OpenStudio::Measure::OSOutput.makeDoubleOutput(output)
     end
     return result
