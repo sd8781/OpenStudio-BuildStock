@@ -63,4 +63,5 @@ analysis_results/data_points/
 /**/local_configuration.receipt
 /**/project_*.zip
 /**/project_*.json
+/**/localResults
 
