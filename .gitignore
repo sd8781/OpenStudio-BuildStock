@@ -64,4 +64,5 @@ analysis_results/data_points/
 /**/project_*.zip
 /**/project_*.json
 /**/localResults
+/**/clusters
 
