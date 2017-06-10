@@ -106,17 +106,11 @@ end
 desc 'Perform integrity check on inputs'
 task :integrity_check do
   project_name = select_project
-  puts "Integrity checking : #{project_name}"
-  options_lookup = if project_name.include?('comstock')
-                   'options_lookup_comstock'
-                 else
-                   'options_lookup'
-                 end
   case project_name
   when 'all'
     integrity_check()
   else
-    integrity_check([project_name], 'housing_characteristics', options_lookup)
+    integrity_check([project_name], 'housing_characteristics')
   end
 end # rake task
 
@@ -134,7 +128,7 @@ task :sampling do
   r.run(project_name,100,'housing_characteristics', options_lookup)
 end
 
-def integrity_check(project_dir_names=nil,characteristics_dir_name='housing_characteristics', options_lookup_name='options_lookup')
+def integrity_check(project_dir_names=nil,characteristics_dir_name='housing_characteristics')
   require 'openstudio'
   
   if project_dir_names.nil?
@@ -146,15 +140,26 @@ def integrity_check(project_dir_names=nil,characteristics_dir_name='housing_char
   resources_shared_dir = File.join(File.dirname(__FILE__), 'resources/shared')
   require File.join(resources_shared_dir, 'helper_methods')
   require File.join(resources_shared_dir, 'run_sampling')
-    
-  # Setup
-  lookup_file = File.join(resources_dir, "#{options_lookup_name}.tsv")
-  puts "lookup_file = #{lookup_file}"
-  check_file_exists(lookup_file, nil)
-  model = OpenStudio::Model::Model.new
-  measure_instances = {}
-  
+
   project_dir_names.each do |project_dir_name|
+    puts "Integrity checking : #{project_dir_name}"
+  
+    # Setup
+    # Load the options lookup for this project based on whether it is com or res
+    resstock_or_comstock = if project_dir_name.include?('res')
+                         'resstock'
+                       elsif project_dir_name.include?('com')
+                         'comstock'
+                       else
+                         puts 'ERROR: Project name did not include res or com, cannot determine which resources to use'
+                         exit
+                       end
+    tsv_dir = File.join(resources_dir, resstock_or_comstock)
+    lookup_file = File.join(tsv_dir, "options_lookup.tsv")
+    puts "options lookup tsv file = #{lookup_file}"
+    model = OpenStudio::Model::Model.new
+    measure_instances = {}
+
     # Perform various checks on each probability distribution file
     parameters_processed = []
     option_names = {}
@@ -164,7 +169,7 @@ def integrity_check(project_dir_names=nil,characteristics_dir_name='housing_char
     last_size = -1
   
     parameter_names = []
-    get_parameters_ordered_from_options_lookup_tsv(resources_dir, nil, options_lookup_name).each do |parameter_name|
+    get_parameters_ordered_from_options_lookup_tsv(tsv_dir, nil).each do |parameter_name|
       tsvpath = File.join(project_dir_name, characteristics_dir_name, "#{parameter_name}.tsv")
       next if not File.exist?(tsvpath) # Not every parameter used by every project
       parameter_names << parameter_name
