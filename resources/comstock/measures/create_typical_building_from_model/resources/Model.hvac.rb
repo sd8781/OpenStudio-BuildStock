@@ -37,7 +37,7 @@ class OpenStudio::Model::Model
     when 'PSZ-AC with no heat'
       add_hvac_system(template, 'PSZ-AC', ht=nil, znht=nil, cl='Electricity', zones)
 
-    when 'PSZ-AC withdistrict hot water heat'
+    when 'PSZ-AC with district hot water heat'
       add_hvac_system(template, 'PSZ-AC', ht='DistrictHeating', znht=nil, cl='Electricity', zones)
 
     when 'PSZ-HP'
@@ -177,7 +177,7 @@ class OpenStudio::Model::Model
       add_hvac_system(template, 'Residential AC', ht=nil, znht=nil, cl='Electricity', zones)
       add_hvac_system(template, 'Baseboards', ht='NaturalGas', znht=nil, cl=nil, zones)
 
-    when 'Residential forced air withdistrict hot water'
+    when 'Residential forced air with district hot water'
       add_hvac_system(template, 'Residential AC', ht=nil, znht=nil, cl='Electricity', zones)
 
     when 'Residential heat pump'
@@ -188,6 +188,7 @@ class OpenStudio::Model::Model
 
     when 'Forced air furnace district chilled water fan coil'
       add_hvac_system(template, 'Forced Air Furnace', ht='NaturalGas', znht=nil, cl=nil, zones)
+      add_hvac_system(template, 'Fan Coil', ht=nil, znht=nil, cl='DistrictCooling', zones)
 
     when 'Forced air furnace direct evap cooler'
       # add_hvac_system(template, 'Forced Air Furnace', ht='NaturalGas', znht=nil, cl=nil, zones)

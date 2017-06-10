@@ -2,8 +2,8 @@
   <schema_version>3.0</schema_version>
   <name>create_typical_building_from_model</name>
   <uid>339a2e3a-273c-4494-bb50-bfe586a0647c</uid>
-  <version_id>5a782606-b87e-42df-9f80-1260ea2e9208</version_id>
-  <version_modified>20170609T231510Z</version_modified>
+  <version_id>2bd161d7-455f-44e3-ba7b-95e17aa2d0de</version_id>
+  <version_modified>20170610T214305Z</version_modified>
   <xml_checksum>EE13F09F</xml_checksum>
   <class_name>CreateTypicalBuildingFromModel</class_name>
   <display_name>Create Typical Building from Model</display_name>
@@ -61,52 +61,52 @@
           <display_name>Ideal Air Loads</display_name>
         </choice>
         <choice>
-          <value>PTAC w/ hot water heat</value>
-          <display_name>PTAC w/ hot water heat</display_name>
+          <value>PTAC with hot water heat</value>
+          <display_name>PTAC with hot water heat</display_name>
         </choice>
         <choice>
-          <value>PTAC w/ gas coil heat</value>
-          <display_name>PTAC w/ gas coil heat</display_name>
+          <value>PTAC with gas coil heat</value>
+          <display_name>PTAC with gas coil heat</display_name>
         </choice>
         <choice>
-          <value>PTAC w/ electric baseboard heat</value>
-          <display_name>PTAC w/ electric baseboard heat</display_name>
+          <value>PTAC with electric baseboard heat</value>
+          <display_name>PTAC with electric baseboard heat</display_name>
         </choice>
         <choice>
-          <value>PTAC w/ no heat</value>
-          <display_name>PTAC w/ no heat</display_name>
+          <value>PTAC with no heat</value>
+          <display_name>PTAC with no heat</display_name>
         </choice>
         <choice>
-          <value>PTAC w/ district hot water heat</value>
-          <display_name>PTAC w/ district hot water heat</display_name>
+          <value>PTAC with district hot water heat</value>
+          <display_name>PTAC with district hot water heat</display_name>
         </choice>
         <choice>
           <value>PTHP</value>
           <display_name>PTHP</display_name>
         </choice>
         <choice>
-          <value>PSZ-AC w/ gas coil heat</value>
-          <display_name>PSZ-AC w/ gas coil heat</display_name>
+          <value>PSZ-AC with gas coil heat</value>
+          <display_name>PSZ-AC with gas coil heat</display_name>
         </choice>
         <choice>
-          <value>PSZ-AC w/ electric baseboard heat</value>
-          <display_name>PSZ-AC w/ electric baseboard heat</display_name>
+          <value>PSZ-AC with electric baseboard heat</value>
+          <display_name>PSZ-AC with electric baseboard heat</display_name>
         </choice>
         <choice>
-          <value>PSZ-AC w/ no heat</value>
-          <display_name>PSZ-AC w/ no heat</display_name>
+          <value>PSZ-AC with no heat</value>
+          <display_name>PSZ-AC with no heat</display_name>
         </choice>
         <choice>
-          <value>PSZ-AC w/district hot water heat</value>
-          <display_name>PSZ-AC w/district hot water heat</display_name>
+          <value>PSZ-AC with district hot water heat</value>
+          <display_name>PSZ-AC with district hot water heat</display_name>
         </choice>
         <choice>
           <value>PSZ-HP</value>
           <display_name>PSZ-HP</display_name>
         </choice>
         <choice>
-          <value>Fan coil district chilled water w/ no heat</value>
-          <display_name>Fan coil district chilled water w/ no heat</display_name>
+          <value>Fan coil district chilled water with no heat</value>
+          <display_name>Fan coil district chilled water with no heat</display_name>
         </choice>
         <choice>
           <value>Fan coil district chilled water and boiler</value>
@@ -121,128 +121,128 @@
           <display_name>Fan coil district chilled water electric baseboard heat</display_name>
         </choice>
         <choice>
-          <value>Fan coil district hot and cold water</value>
-          <display_name>Fan coil district hot and cold water</display_name>
+          <value>Fan coil district hot and chilled water</value>
+          <display_name>Fan coil district hot and chilled water</display_name>
         </choice>
         <choice>
           <value>Fan coil district hot water and chiller</value>
           <display_name>Fan coil district hot water and chiller</display_name>
         </choice>
         <choice>
-          <value>Fan coil chiller w/ no heat</value>
-          <display_name>Fan coil chiller w/ no heat</display_name>
+          <value>Fan coil chiller with no heat</value>
+          <display_name>Fan coil chiller with no heat</display_name>
         </choice>
         <choice>
           <value>Baseboard district hot water heat</value>
           <display_name>Baseboard district hot water heat</display_name>
         </choice>
         <choice>
-          <value>Baseboard district hot water heat w/ direct evap coolers</value>
-          <display_name>Baseboard district hot water heat w/ direct evap coolers</display_name>
+          <value>Baseboard district hot water heat with direct evap coolers</value>
+          <display_name>Baseboard district hot water heat with direct evap coolers</display_name>
         </choice>
         <choice>
           <value>Baseboard electric heat</value>
           <display_name>Baseboard electric heat</display_name>
         </choice>
         <choice>
-          <value>Baseboard electric heat w/ direct evap coolers</value>
-          <display_name>Baseboard electric heat w/ direct evap coolers</display_name>
+          <value>Baseboard electric heat with direct evap coolers</value>
+          <display_name>Baseboard electric heat with direct evap coolers</display_name>
         </choice>
         <choice>
           <value>Baseboard hot water heat</value>
           <display_name>Baseboard hot water heat</display_name>
         </choice>
         <choice>
-          <value>Baseboard hot water heat w/ direct evap coolers</value>
-          <display_name>Baseboard hot water heat w/ direct evap coolers</display_name>
+          <value>Baseboard hot water heat with direct evap coolers</value>
+          <display_name>Baseboard hot water heat with direct evap coolers</display_name>
         </choice>
         <choice>
-          <value>Window AC w/ no heat</value>
-          <display_name>Window AC w/ no heat</display_name>
+          <value>Window AC with no heat</value>
+          <display_name>Window AC with no heat</display_name>
         </choice>
         <choice>
-          <value>Window AC w/ forced air furnace</value>
-          <display_name>Window AC w/ forced air furnace</display_name>
+          <value>Window AC with forced air furnace</value>
+          <display_name>Window AC with forced air furnace</display_name>
         </choice>
         <choice>
-          <value>Window AC w/ district hot water baseboard heat</value>
-          <display_name>Window AC w/ district hot water baseboard heat</display_name>
+          <value>Window AC with district hot water baseboard heat</value>
+          <display_name>Window AC with district hot water baseboard heat</display_name>
         </choice>
         <choice>
-          <value>Window AC w/ hot water baseboard heat</value>
-          <display_name>Window AC w/ hot water baseboard heat</display_name>
+          <value>Window AC with hot water baseboard heat</value>
+          <display_name>Window AC with hot water baseboard heat</display_name>
         </choice>
         <choice>
-          <value>Window AC w/ electric baseboard heat</value>
-          <display_name>Window AC w/ electric baseboard heat</display_name>
+          <value>Window AC with electric baseboard heat</value>
+          <display_name>Window AC with electric baseboard heat</display_name>
         </choice>
         <choice>
-          <value>Window AC w/ unit heaters</value>
-          <display_name>Window AC w/ unit heaters</display_name>
+          <value>Window AC with unit heaters</value>
+          <display_name>Window AC with unit heaters</display_name>
         </choice>
         <choice>
           <value>Direct evap coolers</value>
           <display_name>Direct evap coolers</display_name>
         </choice>
         <choice>
-          <value>Direct evap coolers w/ unit heaters</value>
-          <display_name>Direct evap coolers w/ unit heaters</display_name>
+          <value>Direct evap coolers with unit heaters</value>
+          <display_name>Direct evap coolers with unit heaters</display_name>
         </choice>
         <choice>
           <value>Unit heaters</value>
           <display_name>Unit heaters</display_name>
         </choice>
         <choice>
-          <value>Heat pump heating w/ no cooling</value>
-          <display_name>Heat pump heating w/ no cooling</display_name>
+          <value>Heat pump heat with no cooling</value>
+          <display_name>Heat pump heat with no cooling</display_name>
         </choice>
         <choice>
-          <value>Heat pump heating w/ direct evap cooler</value>
-          <display_name>Heat pump heating w/ direct evap cooler</display_name>
+          <value>Heat pump heat with direct evap cooler</value>
+          <display_name>Heat pump heat with direct evap cooler</display_name>
         </choice>
         <choice>
-          <value>VAV w/ reheat</value>
-          <display_name>VAV w/ reheat</display_name>
+          <value>VAV with reheat</value>
+          <display_name>VAV with reheat</display_name>
         </choice>
         <choice>
-          <value>VAV w/PFP boxes</value>
-          <display_name>VAV w/PFP boxes</display_name>
+          <value>VAV with PFP boxes</value>
+          <display_name>VAV with PFP boxes</display_name>
         </choice>
         <choice>
-          <value>VAV w/ gas reheat</value>
-          <display_name>VAV w/ gas reheat</display_name>
+          <value>VAV with gas reheat</value>
+          <display_name>VAV with gas reheat</display_name>
         </choice>
         <choice>
-          <value>VAV w/ zone unit heaters</value>
-          <display_name>VAV w/ zone unit heaters</display_name>
+          <value>VAV with zone unit heaters</value>
+          <display_name>VAV with zone unit heaters</display_name>
         </choice>
         <choice>
-          <value>VAV w/ electric baseboards</value>
-          <display_name>VAV w/ electric baseboards</display_name>
+          <value>VAV with electric baseboard heat</value>
+          <display_name>VAV with electric baseboard heat</display_name>
         </choice>
         <choice>
-          <value>VAV cool with zone heat pump heating</value>
-          <display_name>VAV cool with zone heat pump heating</display_name>
+          <value>VAV cool with zone heat pump heat</value>
+          <display_name>VAV cool with zone heat pump heat</display_name>
         </choice>
         <choice>
-          <value>PVAV w/ reheat</value>
-          <display_name>PVAV w/ reheat</display_name>
+          <value>PVAV with reheat</value>
+          <display_name>PVAV with reheat</display_name>
         </choice>
         <choice>
-          <value>PVAV w/ PFP boxes</value>
-          <display_name>PVAV w/ PFP boxes</display_name>
+          <value>PVAV with PFP boxes</value>
+          <display_name>PVAV with PFP boxes</display_name>
         </choice>
         <choice>
           <value>Residential forced air</value>
           <display_name>Residential forced air</display_name>
         </choice>
         <choice>
-          <value>Residential forced air cooling hot water baseboards</value>
-          <display_name>Residential forced air cooling hot water baseboards</display_name>
+          <value>Residential forced air cooling hot water baseboard heat</value>
+          <display_name>Residential forced air cooling hot water baseboard heat</display_name>
         </choice>
         <choice>
-          <value>Residential forced air w/district hot water</value>
-          <display_name>Residential forced air w/district hot water</display_name>
+          <value>Residential forced air with district hot water</value>
+          <display_name>Residential forced air with district hot water</display_name>
         </choice>
         <choice>
           <value>Residential heat pump</value>
@@ -261,12 +261,12 @@
           <display_name>Forced air furnace direct evap cooler</display_name>
         </choice>
         <choice>
-          <value>Residential AC w/ no heat</value>
-          <display_name>Residential AC w/ no heat</display_name>
+          <value>Residential AC with no heat</value>
+          <display_name>Residential AC with no heat</display_name>
         </choice>
         <choice>
-          <value>Residential AC w/electric baseboards</value>
-          <display_name>Residential AC w/electric baseboards</display_name>
+          <value>Residential AC with electric baseboard heat</value>
+          <display_name>Residential AC with electric baseboard heat</display_name>
         </choice>
       </choices>
     </argument>
@@ -653,7 +653,13 @@
       <filename>Model.hvac.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>258011A8</checksum>
+      <checksum>6C20C818</checksum>
+    </file>
+    <file>
+      <filename>test_hvac.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>test</usage_type>
+      <checksum>E7D4E373</checksum>
     </file>
     <file>
       <version>
@@ -664,25 +670,7 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>31C3295C</checksum>
-    </file>
-    <file>
-      <filename>test_hvac_output.log</filename>
-      <filetype>log</filetype>
-      <usage_type>test</usage_type>
-      <checksum>D5DA684B</checksum>
-    </file>
-    <file>
-      <filename>TODO.log</filename>
-      <filetype>log</filetype>
-      <usage_type>resource</usage_type>
-      <checksum>C9F01FDC</checksum>
-    </file>
-    <file>
-      <filename>test_hvac.rb</filename>
-      <filetype>rb</filetype>
-      <usage_type>test</usage_type>
-      <checksum>D0265475</checksum>
+      <checksum>BE271BA1</checksum>
     </file>
   </files>
 </measure>

@@ -4,9 +4,8 @@
 # start the measure
 class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
 
-  # require 'openstudio-standards'
-  require 'C:/GitRepos/openstudio-standards/openstudio-standards/lib/openstudio-standards'
-  
+  require 'openstudio-standards'
+
   # require all .rb files in resources folder
   Dir[File.dirname(__FILE__) + '/resources/*.rb'].each {|file| require file }
 
@@ -85,14 +84,14 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
     hvac_chs << "Direct evap coolers"
     hvac_chs << "Direct evap coolers with unit heaters"
     hvac_chs << "Unit heaters"
-    hvac_chs << "Heat pump heating with no cooling"
-    hvac_chs << "Heat pump heating with direct evap cooler"
+    hvac_chs << "Heat pump heat with no cooling"
+    hvac_chs << "Heat pump heat with direct evap cooler"
     hvac_chs << "VAV with reheat"
     hvac_chs << "VAV with PFP boxes"
     hvac_chs << "VAV with gas reheat"
     hvac_chs << "VAV with zone unit heaters"
     hvac_chs << "VAV with electric baseboard heat"
-    hvac_chs << "VAV cool with zone heat pump heating"
+    hvac_chs << "VAV cool with zone heat pump heat"
     hvac_chs << "PVAV with reheat"
     hvac_chs << "PVAV with PFP boxes"
     hvac_chs << "Residential forced air"
