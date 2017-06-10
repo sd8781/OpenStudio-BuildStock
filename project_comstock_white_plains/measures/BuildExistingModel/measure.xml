@@ -2,8 +2,8 @@
   <schema_version>3.0</schema_version>
   <name>build_existing_model</name>
   <uid>943cde68-f4bf-4e2e-a984-ab70cba2669c</uid>
-  <version_id>54bcf17e-501b-47b9-be1d-7b2fd3c4ed48</version_id>
-  <version_modified>20170509T213320Z</version_modified>
+  <version_id>5cb3ccc0-7818-46c7-a4b1-9217eabd8bf6</version_id>
+  <version_modified>20170610T193355Z</version_modified>
   <xml_checksum>9339BE01</xml_checksum>
   <class_name>BuildExistingModel</class_name>
   <display_name>Build Existing Model</display_name>
@@ -94,7 +94,7 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>058883F9</checksum>
+      <checksum>EB1FA195</checksum>
     </file>
   </files>
 </measure>
