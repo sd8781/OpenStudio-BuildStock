@@ -156,7 +156,7 @@ def check_dir_exists(full_path, runner=nil)
     end
 end
 
-def get_parameters_ordered_from_options_lookup_tsv(tsv_dir, characteristics_dir=nil, options_lookup_name='options_lookup')
+def get_parameters_ordered_from_options_lookup_tsv(tsv_dir, characteristics_dir=nil)
     # Obtain full list of parameters and their order
     params_file = File.join(tsv_dir, "options_lookup.tsv")
     if not File.exist?(params_file)

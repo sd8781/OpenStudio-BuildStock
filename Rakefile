@@ -116,16 +116,34 @@ end # rake task
 
 desc 'Run sampling'
 task :sampling do
-  require_relative 'resources/run_sampling'
+  require_relative 'resources/shared/run_sampling'
   project_name = select_project
   puts "Running sampling for: #{project_name}"
-  options_lookup = if project_name.include?('comstock')
-                     'options_lookup_comstock'
-                   else
-                     'options_lookup'
-                   end
+  
+  # Setup full paths to directories
+
+  # project_dir is where the project itself lives
+  project_dir = File.absolute_path(File.join(File.dirname(__FILE__), project_name))
+  puts "  project_dir = #{project_dir}"
+
+  # characteristics_dir is where the project's housing_characteristics tsvs live.
+  # These are project-specific
+  characteristics_dir = File.absolute_path(File.join(project_dir, 'housing_characteristics'))
+  puts "  characteristics_dir = #{characteristics_dir}" 
+
+  # resources_dir is where common options_lookup.tsv and measures live
+  # There is one set for comstock and another set for resstock
+  com_or_res = if project_name.include?('comstock')
+                   'comstock'
+                 else
+                   'resstock'
+                 end
+  resources_dir = File.absolute_path(File.join(File.dirname(__FILE__), 'resources', com_or_res))
+  puts "  resources_dir = #{resources_dir}"  
+
   r = RunSampling.new
-  r.run(project_name,100,'housing_characteristics', options_lookup)
+  r.run(project_dir, 100, characteristics_dir, resources_dir)
+  
 end
 
 def integrity_check(project_dir_names=nil,characteristics_dir_name='housing_characteristics')

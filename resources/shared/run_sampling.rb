@@ -8,14 +8,8 @@ require_relative 'helper_methods'
 
 class RunSampling
 
-    def run(project_dir_name, num_samples, characteristics_dir_name='housing_characteristics', resources_dir_name='resources')
-        puts "in RunSampling.run, resources_dir_name = #{resources_dir_name} on input expansion"
-        resources_dir = File.absolute_path(File.join(File.dirname(__FILE__), '..', resources_dir_name)) # Should have been uploaded per 'Additional Analysis Files' in PAT
-        characteristics_dir = File.absolute_path(File.join(File.dirname(__FILE__), '..', characteristics_dir_name)) # Should have been uploaded per 'Additional Analysis Files' in PAT
-        if not File.exists?(characteristics_dir)
-            characteristics_dir = File.absolute_path(File.join(File.dirname(__FILE__), '..', project_dir_name, 'housing_characteristics')) # Being run locally?
-        end
-        puts "in RunSampling.run, resources_dir = #{resources_dir} after expansion"
+    def run(project_dir, num_samples, characteristics_dir, resources_dir)
+
         params = get_parameters_ordered_from_options_lookup_tsv(resources_dir, characteristics_dir)
         
         tsvfiles = {}
@@ -31,8 +25,8 @@ class RunSampling
         end
 
         params = update_parameter_dependencies(params, tsvfiles)
-        sample_results = perform_sampling(params, num_samples, tsvfiles, project_dir_name).transpose
-        out_file = write_csv(sample_results,"#{project_dir_name}/#{characteristics_dir_name}")
+        sample_results = perform_sampling(params, num_samples, tsvfiles, project_dir).transpose
+        out_file = write_csv(sample_results, characteristics_dir)
         return out_file
     end
 
