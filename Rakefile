@@ -4,7 +4,7 @@ task :copy_beopt_files do
   require 'fileutils'
 
   beopt_measures_dir = File.join(File.dirname(__FILE__), "..", "OpenStudio-BEopt", "measures")
-  buildstock_measures_dir = File.join(File.dirname(__FILE__), "resources", "measures")
+  buildstock_measures_dir = File.join(File.dirname(__FILE__), "resources", "resstock", "measures")
   if not Dir.exist?(beopt_measures_dir)
     puts "Cannot find OpenStudio-BEopt measures dir at #{beopt_measures_dir}."
   end
@@ -65,7 +65,7 @@ task :copy_comstock_files do
   require 'fileutils'
 
   os_measures_dir = File.join(File.dirname(__FILE__), "..", "OpenStudio-measures/NREL working measures")
-  buildstock_measures_dir = File.join(File.dirname(__FILE__), "resources", "measures")
+  buildstock_measures_dir = File.join(File.dirname(__FILE__), "resources", "comstock", "measures")
   unless Dir.exist?(os_measures_dir)
     puts "Cannot find OpenStudio-measures dir at #{os_measures_dir}."
     exit
