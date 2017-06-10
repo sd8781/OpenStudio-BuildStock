@@ -146,6 +146,14 @@ task :sampling do
   
 end
 
+desc 'Summarizes errors from localResults'
+task :summarize_errs do
+  project_name = select_project
+  puts "Summarizing errors for: #{project_name}"
+  project_dir = File.absolute_path(File.join(File.dirname(__FILE__), project_name))
+  summarize_simulation_errors(project_dir)
+end
+
 def integrity_check(project_dir_names=nil,characteristics_dir_name='housing_characteristics')
   require 'openstudio'
   
@@ -323,6 +331,38 @@ def integrity_check(project_dir_names=nil,characteristics_dir_name='housing_char
     end
     
   end # project_dir_name
+end
+
+# Reads through the localResults of a project and creates a count
+# of how many times a unique error occurs.  Useful for debugging.
+def summarize_simulation_errors(project_dir)
+
+  require 'json'
+
+  errs = []
+  Dir.glob("#{project_dir}/localResults/**/*.osw").each do |osw|
+    temp = File.read(osw)
+    results = JSON.parse(temp)
+    # puts results.keys
+    results['steps'].each do |step|
+      next if step['result'].nil?
+      next if step['result']['step_errors'].nil?
+      step['result']['step_errors'].each do |err|
+        err_lines = err.split("\n")[0]
+        errs << err_lines
+      end
+    end
+  end
+
+  summary = "#{project_dir}/localResults/error_summary.log"
+  File.open(summary, 'w') do |file|
+    errs.uniq.sort.each do |err|
+      file.puts err
+    end
+  end
+  puts "#{errs.uniq.size} unique errors.  Summary in #{summary}"
+
+  return true
 end
 
 def get_all_project_dir_names()
