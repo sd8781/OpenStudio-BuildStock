@@ -143,8 +143,9 @@ def integrity_check(project_dir_names=nil,characteristics_dir_name='housing_char
 
   # Load helper file and sampling file
   resources_dir = File.join(File.dirname(__FILE__), 'resources')
-  require File.join(resources_dir, 'helper_methods')
-  require File.join(resources_dir, 'run_sampling')
+  resources_shared_dir = File.join(File.dirname(__FILE__), 'resources/shared')
+  require File.join(resources_shared_dir, 'helper_methods')
+  require File.join(resources_shared_dir, 'run_sampling')
     
   # Setup
   lookup_file = File.join(resources_dir, "#{options_lookup_name}.tsv")

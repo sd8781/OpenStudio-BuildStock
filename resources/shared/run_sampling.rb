@@ -4,19 +4,19 @@
 # File name must for the snake case (underscore case) of the class name. For example: WorkerInit = worker_init
 
 require 'csv'
-require_relative '../resources/helper_methods'
+require_relative 'helper_methods'
 
 class RunSampling
 
-    def run(project_dir_name, num_samples, characteristics_dir_name='housing_characteristics', options_lookup_name='options_lookup')
-        
-        resources_dir = File.absolute_path(File.join(File.dirname(__FILE__), '..', 'resources')) # Should have been uploaded per 'Additional Analysis Files' in PAT
+    def run(project_dir_name, num_samples, characteristics_dir_name='housing_characteristics', resources_dir_name='resources')
+        puts "in RunSampling.run, resources_dir_name = #{resources_dir_name} on input expansion"
+        resources_dir = File.absolute_path(File.join(File.dirname(__FILE__), '..', resources_dir_name)) # Should have been uploaded per 'Additional Analysis Files' in PAT
         characteristics_dir = File.absolute_path(File.join(File.dirname(__FILE__), '..', characteristics_dir_name)) # Should have been uploaded per 'Additional Analysis Files' in PAT
         if not File.exists?(characteristics_dir)
             characteristics_dir = File.absolute_path(File.join(File.dirname(__FILE__), '..', project_dir_name, 'housing_characteristics')) # Being run locally?
         end
-        
-        params = get_parameters_ordered_from_options_lookup_tsv(resources_dir, characteristics_dir, options_lookup_name)
+        puts "in RunSampling.run, resources_dir = #{resources_dir} after expansion"
+        params = get_parameters_ordered_from_options_lookup_tsv(resources_dir, characteristics_dir)
         
         tsvfiles = {}
         params.each do |param|
@@ -32,7 +32,7 @@ class RunSampling
 
         params = update_parameter_dependencies(params, tsvfiles)
         sample_results = perform_sampling(params, num_samples, tsvfiles, project_dir_name).transpose
-        out_file = write_csv(sample_results)
+        out_file = write_csv(sample_results,"#{project_dir_name}/#{characteristics_dir_name}")
         return out_file
     end
 
@@ -290,15 +290,21 @@ class RunSampling
         return random_seed + 1
     end
 
-    def write_csv(sample_results)
+    def write_csv(sample_results, destination_folder=nil)
+        destination_folder = if destination_folder.nil?
+                               File.join(File.dirname(__FILE__))
+                             else
+                               File.absolute_path(destination_folder)
+                             end
+        destination_folder =  File.join(destination_folder, 'buildstock.csv')
         # Writes the csv output file.
-        out_file = File.absolute_path(File.join(File.dirname(__FILE__), 'buildstock.csv'))
+        out_file = File.absolute_path(destination_folder)
+        puts "Writing file to #{out_file}"
         CSV.open(out_file, 'w') do |csv_object|
           sample_results.each do |sample_result|
             csv_object << sample_result
           end
         end
-        puts "Wrote output file #{File.basename(out_file)}."
         return out_file
     end
 

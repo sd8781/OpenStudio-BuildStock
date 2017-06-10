@@ -54,8 +54,9 @@ class BuildExistingModel < OpenStudio::Ruleset::ModelUserScript
     
     # Get file/dir paths
     resources_dir = File.absolute_path(File.join(File.dirname(__FILE__), "..", "..", "lib", "resources")) # Should have been uploaded per 'Additional Analysis Files' in PAT
+    resources_shared_dir = File.absolute_path(File.join(File.dirname(__FILE__), "..", "..", "lib", "resources-shared")) # Should have been uploaded per 'Additional Analysis Files' in PAT
     characteristics_dir = File.absolute_path(File.join(File.dirname(__FILE__), "..", "..", "lib", "housing_characteristics")) # Should have been uploaded per 'Additional Analysis Files' in PAT
-    helper_methods_file = File.join(resources_dir, "helper_methods.rb")
+    helper_methods_file = File.join(resources_shared_dir, "helper_methods.rb")
     measures_dir = File.join(resources_dir, "measures")
     lookup_file = File.join(resources_dir, "options_lookup_comstock.tsv")
     # FIXME: Temporary
