@@ -4,8 +4,9 @@
 # start the measure
 class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
 
-  require 'openstudio-standards'
-
+  # require 'openstudio-standards'
+  require 'C:/GitRepos/openstudio-standards/openstudio-standards/lib/openstudio-standards'
+  
   # require all .rb files in resources folder
   Dir[File.dirname(__FILE__) + '/resources/*.rb'].each {|file| require file }
 
@@ -47,77 +48,64 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
     template.setDefaultValue(default_string)
     args << template
 
-    # Make argument for building_type
-    bldg_type_chs = OpenStudio::StringVector.new
-    bldg_type_chs << "SecondarySchool"
-    bldg_type_chs << "PrimarySchool"
-    bldg_type_chs << "SmallOffice"
-    bldg_type_chs << "MediumOffice"
-    bldg_type_chs << "LargeOffice"
-    bldg_type_chs << "SmallHotel"
-    bldg_type_chs << "LargeHotel"
-    bldg_type_chs << "Warehouse"
-    bldg_type_chs << "RetailStandalone"
-    bldg_type_chs << "RetailStripmall"
-    bldg_type_chs << "QuickServiceRestaurant"
-    bldg_type_chs << "FullServiceRestaurant"
-    bldg_type_chs << "MidriseApartment"
-    bldg_type_chs << "HighriseApartment"
-    bldg_type_chs << "Hospital"
-    bldg_type_chs << "Outpatient"
-    bldg_type_chs << "SuperMarket"
-    building_type = OpenStudio::Ruleset::OSArgument::makeChoiceArgument('building_type', bldg_type_chs, true)
-    building_type.setDisplayName('Primary Building Type')
-    building_type.setDescription('The building type that makes up a majority of the area.  Used for HVAC assumptions.')
-    building_type.setDefaultValue('SmallOffice')
-    args << building_type
-
     # Make argument for system type
     hvac_chs = OpenStudio::StringVector.new
     hvac_chs << "Inferred"
     hvac_chs << "Ideal Air Loads"
-    hvac_chs << "PTAC w/ hot water heat"
-    hvac_chs << "PTAC w/ gas coil heat"
-    hvac_chs << "PTAC w/ electric baseboard heat"
-    hvac_chs << "PTAC w/ no heat"
-    hvac_chs << "PTAC w/ district hot water heat"
+    hvac_chs << "PTAC with hot water heat"
+    hvac_chs << "PTAC with gas coil heat"
+    hvac_chs << "PTAC with electric baseboard heat"
+    hvac_chs << "PTAC with no heat"
+    hvac_chs << "PTAC with district hot water heat"
     hvac_chs << "PTHP"
-    hvac_chs << "PSZ-AC w/ gas coil heat"
-    hvac_chs << "PSZ-AC w/ electric baseboard heat"
-    hvac_chs << "PSZ-AC w/ no heat"
-    hvac_chs << "PSZ-AC w/district hot water heat"
+    hvac_chs << "PSZ-AC with gas coil heat"
+    hvac_chs << "PSZ-AC with electric baseboard heat"
+    hvac_chs << "PSZ-AC with no heat"
+    hvac_chs << "PSZ-AC with district hot water heat"
     hvac_chs << "PSZ-HP"
-    hvac_chs << "Fan coil district chilled water w/ no heat"
+    hvac_chs << "Fan coil district chilled water with no heat"
     hvac_chs << "Fan coil district chilled water and boiler"
     hvac_chs << "Fan coil district chilled water unit heaters"
     hvac_chs << "Fan coil district chilled water electric baseboard heat"
-    hvac_chs << "Fan coil district hot and cold water"
+    hvac_chs << "Fan coil district hot and chilled water"
     hvac_chs << "Fan coil district hot water and chiller"
-    hvac_chs << "Fan coil chiller w/ no heat"
+    hvac_chs << "Fan coil chiller with no heat"
     hvac_chs << "Baseboard district hot water heat"
-    hvac_chs << "Baseboard district hot water heat w/ direct evap coolers"
+    hvac_chs << "Baseboard district hot water heat with direct evap coolers"
     hvac_chs << "Baseboard electric heat"
-    hvac_chs << "Baseboard electric heat w/ direct evap coolers"
+    hvac_chs << "Baseboard electric heat with direct evap coolers"
     hvac_chs << "Baseboard hot water heat"
-    hvac_chs << "Baseboard hot water heat w/ direct evap coolers"
-    hvac_chs << "Window AC w/ no heat"
-    hvac_chs << "Window AC w/ forced air furnace"
-    hvac_chs << "Window AC w/ district hot water baseboard heat"
-    hvac_chs << "Window AC w/ hot water baseboard heat"
-    hvac_chs << "Window AC w/ electric baseboard heat"
-    hvac_chs << "Window AC w/ unit heaters"
+    hvac_chs << "Baseboard hot water heat with direct evap coolers"
+    hvac_chs << "Window AC with no heat"
+    hvac_chs << "Window AC with forced air furnace"
+    hvac_chs << "Window AC with district hot water baseboard heat"
+    hvac_chs << "Window AC with hot water baseboard heat"
+    hvac_chs << "Window AC with electric baseboard heat"
+    hvac_chs << "Window AC with unit heaters"
     hvac_chs << "Direct evap coolers"
-    hvac_chs << "Direct evap coolers w/ unit heaters"
+    hvac_chs << "Direct evap coolers with unit heaters"
     hvac_chs << "Unit heaters"
-    hvac_chs << "Heat pump heating w/ no cooling"
-    hvac_chs << "Heat pump heating w/ direct evap cooler"
-    hvac_chs << "VAV w/ reheat"
-    hvac_chs << "PVAV w/ reheat"
-    hvac_chs << "PVAV w/ PFP boxes"
+    hvac_chs << "Heat pump heating with no cooling"
+    hvac_chs << "Heat pump heating with direct evap cooler"
+    hvac_chs << "VAV with reheat"
+    hvac_chs << "VAV with PFP boxes"
+    hvac_chs << "VAV with gas reheat"
+    hvac_chs << "VAV with zone unit heaters"
+    hvac_chs << "VAV with electric baseboard heat"
+    hvac_chs << "VAV cool with zone heat pump heating"
+    hvac_chs << "PVAV with reheat"
+    hvac_chs << "PVAV with PFP boxes"
     hvac_chs << "Residential forced air"
+    hvac_chs << "Residential forced air cooling hot water baseboard heat"
+    hvac_chs << "Residential forced air with district hot water"
+    hvac_chs << "Residential heat pump"
+    hvac_chs << "Forced air furnace"
+    hvac_chs << "Forced air furnace district chilled water fan coil"
+    hvac_chs << "Forced air furnace direct evap cooler"
+    hvac_chs << "Residential AC with no heat"
+    hvac_chs << "Residential AC with electric baseboard heat"
     system_type = OpenStudio::Ruleset::OSArgument::makeChoiceArgument("system_type", hvac_chs,true)
     system_type.setDisplayName("HVAC System Type")
-    system_type.setDescription("The HVAC system that will be put into the model.")
     system_type.setDefaultValue("Inferred")
     args << system_type
 
@@ -127,7 +115,7 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
     hvac_type_chs << "Hydronic"
     hvac_delivery_type = OpenStudio::Ruleset::OSArgument::makeChoiceArgument("hvac_delivery_type", hvac_type_chs,true)
     hvac_delivery_type.setDisplayName("HVAC System Delivery Type")
-    hvac_delivery_type.setDescription("How the HVAC system delivers heating or cooling to the zone.  Only used if HVAC System Type is Inferred. ")
+    hvac_delivery_type.setDescription("How the HVAC system delivers heating or cooling to the zone.")
     hvac_delivery_type.setDefaultValue("Forced Air")
     args << hvac_delivery_type
 
@@ -139,7 +127,7 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
     htg_src_chs << "DistrictAmbient"
     htg_src = OpenStudio::Ruleset::OSArgument::makeChoiceArgument("htg_src", htg_src_chs,true)
     htg_src.setDisplayName("HVAC Heating Source")
-    htg_src.setDescription("The primary source of heating used by HVAC systems in the model.  Only used if HVAC System Type is Inferred.")
+    htg_src.setDescription("The primary source of heating used by HVAC systems in the model.")
     htg_src.setDefaultValue("NaturalGas")
     args << htg_src
     
@@ -150,10 +138,11 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
     clg_src_chs << "DistrictAmbient"
     clg_src = OpenStudio::Ruleset::OSArgument::makeChoiceArgument("clg_src", clg_src_chs,true)
     clg_src.setDisplayName("HVAC Cooling Source")
-    clg_src.setDescription("The primary source of cooling used by HVAC systems in the model.  Only used if HVAC System Type is Inferred.")
+    clg_src.setDescription("The primary source of cooling used by HVAC systems in the model.")
     clg_src.setDefaultValue("Electricity")
     args << clg_src
 
+=begin
     # fuel choices for multiple arguments
     fuel_choices = OpenStudio::StringVector.new
     fuel_choices << "Electric"
@@ -177,6 +166,7 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
     fuel_type_laundry.setDisplayName("Fuel Type for Laundry Dryer Loads")
     fuel_type_laundry.setDefaultValue("Electric")
     args << fuel_type_laundry
+=end
 
     # make argument for kitchen makeup
     kitchen_makeup_choices = OpenStudio::StringVector.new
@@ -202,6 +192,20 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
     exterior_lighting_zone.setDefaultValue("3 - All Other Areas")
     args << exterior_lighting_zone
 
+    #make an argument for add_constructions
+    add_constructions = OpenStudio::Ruleset::OSArgument::makeBoolArgument("add_constructions",true)
+    add_constructions.setDisplayName("Add Constructions to Model")
+    add_constructions.setDescription("Construction Set will be appied to entire building")
+    add_constructions.setDefaultValue(true)
+    args << add_constructions
+
+    #make an argument for add_space_type_loads
+    add_space_type_loads = OpenStudio::Ruleset::OSArgument::makeBoolArgument("add_space_type_loads",true)
+    add_space_type_loads.setDisplayName("Add Space Type Loads to Model")
+    add_space_type_loads.setDescription("Populate existing space types in model with internal loads.")
+    add_space_type_loads.setDefaultValue(true)
+    args << add_space_type_loads
+
     #make an argument for add_elevators
     add_elevators = OpenStudio::Ruleset::OSArgument::makeBoolArgument("add_elevators",true)
     add_elevators.setDisplayName("Add Elevators to Model")
@@ -215,6 +219,13 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
     add_exterior_lights.setDescription("Multiple exterior lights objects will be added for different classes of lighting such as parking and facade.")
     add_exterior_lights.setDefaultValue(true)
     args << add_exterior_lights
+
+    #make an argument for onsite_parking_fraction
+    onsite_parking_fraction = OpenStudio::Ruleset::OSArgument::makeDoubleArgument("onsite_parking_fraction",true)
+    onsite_parking_fraction.setDisplayName("Onsite Parking Fraction")
+    onsite_parking_fraction.setDescription("If set to 0 no exterior lighting for parking will be added")
+    onsite_parking_fraction.setDefaultValue(1.0)
+    args << onsite_parking_fraction
 
     #make an argument for add_exhaust
     add_exhaust = OpenStudio::Ruleset::OSArgument::makeBoolArgument("add_exhaust",true)
@@ -230,6 +241,27 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
     add_swh.setDefaultValue(true)
     args << add_swh
 
+    #make an argument for add_thermostat
+    add_thermostat = OpenStudio::Ruleset::OSArgument::makeBoolArgument("add_thermostat",true)
+    add_thermostat.setDisplayName("Add Thermostats")
+    add_thermostat.setDescription("Add Thermost to model based on Space Type Standards information of spaces assigned to thermal zones.")
+    add_thermostat.setDefaultValue(true)
+    args << add_thermostat
+
+    #make an argument for add_hvac
+    add_hvac = OpenStudio::Ruleset::OSArgument::makeBoolArgument("add_hvac",true)
+    add_hvac.setDisplayName("Add HVAC System to Model")
+    add_hvac.setDescription("Add HVAC System and thermostats to model")
+    add_hvac.setDefaultValue(true)
+    args << add_hvac
+
+    #make an argument for remove_objects
+    remove_objects = OpenStudio::Ruleset::OSArgument::makeBoolArgument("remove_objects",true)
+    remove_objects.setDisplayName("Clean Model of non-gemoetry objects")
+    remove_objects.setDescription("Only removes objects of type that are selected to be added.")
+    remove_objects.setDefaultValue(true)
+    args << remove_objects
+
     return args
   end
 
@@ -241,76 +273,69 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
     args  = OsLib_HelperMethods.createRunVariables(runner, model,user_arguments, arguments(model))
     if !args then return false end
 
+    fraction = OsLib_HelperMethods.checkDoubleAndIntegerArguments(runner, user_arguments,{"min"=>0.0,"max"=>1.0,"min_eq_bool"=>true,"max_eq_bool"=>true,"arg_array" =>['onsite_parking_fraction']})
+    if !fraction then return false end
+
     # look at upstream measure for 'template' argument
-    # todo - in future make template in this measure an optinal argument and only override value when it is not initialized. There may be valid use cases for using different template values in different measures within the same workflow.
+    # todo - in future make template in this measure an optional argument and only override value when it is not initialized. There may be valid use cases for using different template values in different measures within the same workflow.
     template_value_from_osw  = OsLib_HelperMethods.check_upstream_measure_for_arg(runner, 'template')
     if template_value_from_osw.size > 0
       runner.registerInfo("Replacing argument named 'template' from current measure with a value of #{template_value_from_osw[:value]} from #{template_value_from_osw[:measure_name]}.")
       args['template'] = template_value_from_osw[:value]
     end
 
-    # look at upstream measure for 'building_type' argument
-    # todo - in future make building_type in this measure an optinal argument and only override value when it is not initialized.
-    building_type_value_from_osw  = OsLib_HelperMethods.check_upstream_measure_for_arg(runner, 'building_type')
-    if building_type_value_from_osw.size > 0
-      runner.registerInfo("Replacing argument named 'building_type' from current measure with a value of #{building_type_value_from_osw[:value]} from #{building_type_value_from_osw[:measure_name]}.")
-      args['building_type'] = building_type_value_from_osw[:value]
-    end
-
     # report initial condition of model
     initial_objects = model.getModelObjects.size
     runner.registerInitialCondition("The building started with #{initial_objects} objects.")
-
-    # remove everything but spaces, zones, and stub space types (extend as needed for additional objects, may make bool arg for this)
-    model.getSpaceLoads.each { |i| i.remove }
-    model.getThermostatSetpointDualSetpoints.each { |i| i.remove }
-    model.getDefaultScheduleSets.each { |i| i.remove }
-    model.getDefaultConstructionSets.each { |i| i.remove }
-    model.getExteriorLightss.each { |i| i.remove }
-    model.getLoops.each { |i| i.remove }
-    model.getZoneHVACComponents.each { |i| i.remove }
-    model.getRefrigerationSystems.each { |i| i.remove }
-    model.getWaterUseEquipments.each { |i| i.remove }
-    model.getWaterUseConnectionss.each { |i| i.remove }
-    model.purgeUnusedResourceObjects
-    objects_after_cleanup = initial_objects - model.getModelObjects.size
-    if objects_after_cleanup > 0
-      runner.registerInfo("Removing #{objects_after_cleanup} objects from model")
-    end
 
     # open channel to log messages
     OsLib_HelperMethods.setup_log_msgs(runner)
 
     # add internal loads to space types
+    if args['add_space_type_loads']
+
+      # remove internal loads
+      if args['remove_objects']
+        model.getSpaceLoads.each do |instance|
+          next if instance.name.to_s.include?('Elevator') # most prototype building types model exterior elevators with name Elevator
+          next if instance.to_InternalMass.is_initialized
+          instance.remove
+        end
+        model.getDesignSpecificationOutdoorAirs.each { |i| i.remove }
+        model.getDefaultScheduleSets.each { |i| i.remove }
+      end
+
+      model.getSpaceTypes.each do |space_type|
+        test = space_type.apply_internal_loads(args['template'],true,true,true,true,true,true)
+        if test == false
+          runner.registerWarning("Could not add loads for #{space_type.name}. Not expected for #{args['template']}")
+          next
+        end
+
+        # apply internal load schedules
+        # the last bool test it to make thermostat schedules. They are now added in HVAC section instead of here
+        space_type.apply_internal_load_schedules(args['template'],true,true,true,true,true,true,false)
+
+        # extend space type name to include the args['template']. Consider this as well for load defs
+        space_type.setName("#{space_type.name.to_s} - #{args['template']}")
+        runner.registerInfo("Adding loads to space type named #{space_type.name}")
+
+      end
+
+      # warn if spaces in model without space type
+      spaces_without_space_types = []
+      model.getSpaces.each do |space|
+        next if space.spaceType.is_initialized
+        spaces_without_space_types << space
+      end
+      if spaces_without_space_types.size > 0
+        runner.registerWarning("#{spaces_without_space_types.size} spaces do not have space types assigned, and wont' receive internal loads from standards space type lookups.")
+      end
+    end
+
+    # identify primary building type (used for construction, and ideally HVAC as well)
     building_types = {}
     model.getSpaceTypes.each do |space_type|
-      test = space_type.apply_internal_loads(args['template'],true,true,true,true,true,true)
-      if test.nil?
-        runner.registerWarning("Could not add loads for #{space_type.name}. Not expected for #{args['template']}")
-        next
-      end
-
-      # apply internal load schedules
-      # the last bool test it to make thermostat schedules. They are added to the model but not assigned
-      space_type.apply_internal_load_schedules(args['template'],true,true,true,true,true,true,true)
-
-      # extend space type name to include the args['template']. Consider this as well for load defs
-      space_type.setName("#{space_type.name.to_s} - #{args['template']}")
-      runner.registerInfo("Adding loads to space type named #{space_type.name}")
-
-      # identify thermal thermostat and apply to zones
-      standards_space_type = space_type.standardsSpaceType
-      model.getThermostatSetpointDualSetpoints.each do |thermostat|
-        next if not standards_space_type.is_initialized
-        next if not thermostat.name.to_s.include?(standards_space_type.get)
-        runner.registerInfo("Assigning #{thermostat.name} to thermal zones with #{space_type.name} assigned.")
-        space_type.spaces.each do |space|
-          next if not space.thermalZone.is_initialized
-          space.thermalZone.get.setThermostatSetpointDualSetpoint(thermostat)
-        end
-        next
-      end
-
       # populate hash of building types
       if space_type.standardsBuildingType.is_initialized
         bldg_type = space_type.standardsBuildingType.get
@@ -322,51 +347,59 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
       else
         runner.registerWarning("Can't identify building type for #{space_type.name}")
       end
-
     end
-
-    # warn if spaces in model without space type
-    spaces_without_space_types = []
-    model.getSpaces.each do |space|
-      next if space.spaceType.is_initialized
-      spaces_without_space_types << space
-    end
-    if spaces_without_space_types.size > 0
-      runner.registerWarning("#{spaces_without_space_types.size} spaces do not have space types assigned, and wont' receive internal loads from standards space type lookups.")
-    end
-
-    # make construction set and apply to building
-    # todo - allow building type and space type specific constructions set selection.
     primary_bldg_type = building_types.key(building_types.values.max) # todo - this fails if no space types, or maybe just no space types with standards
     model.getBuilding.setStandardsBuildingType(primary_bldg_type)
-    if ['SmallHotel','LargeHotel','MidriseApartment','HighriseApartment'].include?(primary_bldg_type)
-      is_residential = 'Yes'
-    else
-      is_residential = 'No'
-    end
-    climate_zone = model.get_building_climate_zone_and_building_type['climate_zone']
-    bldg_def_const_set = model.add_construction_set(args['template'], climate_zone, primary_bldg_type, nil, is_residential)
-    if bldg_def_const_set.is_initialized
-      bldg_def_const_set = bldg_def_const_set.get
-      if is_residential then bldg_def_const_set.setName("Res #{bldg_def_const_set.name}") end
-      model.getBuilding.setDefaultConstructionSet(bldg_def_const_set)
-      runner.registerInfo("Adding default construction set named #{bldg_def_const_set.name}")
-    else
-      runner.registerError('Could not create default construction set for the building.')
-      return false
-    end
 
-    # address any adiabatic surfaces that don't have hard assigned constructions
-    model.getSurfaces.each do |surface|
-      next if not surface.outsideBoundaryCondition == "Adiabatic"
-      next if surface.construction.is_initialized
-      surface.setAdjacentSurface(surface)
-      surface.setConstruction(surface.construction.get)
-      surface.setOutsideBoundaryCondition("Adiabatic")
+    # make construction set and apply to building
+    if args['add_constructions']
+
+      # remove default construction sets
+      if args['remove_objects']
+        model.getDefaultConstructionSets.each { |i| i.remove }
+      end
+
+      # todo - allow building type and space type specific constructions set selection.
+      if ['SmallHotel','LargeHotel','MidriseApartment','HighriseApartment'].include?(primary_bldg_type)
+        is_residential = 'Yes'
+      else
+        is_residential = 'No'
+      end
+      climate_zone = model.get_building_climate_zone_and_building_type['climate_zone']
+      bldg_def_const_set = model.add_construction_set(args['template'], climate_zone, primary_bldg_type, nil, is_residential)
+      if bldg_def_const_set.is_initialized
+        bldg_def_const_set = bldg_def_const_set.get
+        if is_residential then bldg_def_const_set.setName("Res #{bldg_def_const_set.name}") end
+        model.getBuilding.setDefaultConstructionSet(bldg_def_const_set)
+        runner.registerInfo("Adding default construction set named #{bldg_def_const_set.name}")
+      else
+        runner.registerError('Could not create default construction set for the building.')
+        return false
+      end
+
+      # address any adiabatic surfaces that don't have hard assigned constructions
+      model.getSurfaces.each do |surface|
+        next if not surface.outsideBoundaryCondition == "Adiabatic"
+        next if surface.construction.is_initialized
+        surface.setAdjacentSurface(surface)
+        surface.setConstruction(surface.construction.get)
+        surface.setOutsideBoundaryCondition("Adiabatic")
+      end
     end
 
     # add elevators (returns ElectricEquipment object)
     if args['add_elevators']
+
+      # remove elevators as spaceLoads or exteriorLights
+      model.getSpaceLoads.each do |instance|
+        next if not instance.name.to_s.include?('Elevator') # most prototype building types model exterior elevators with name Elevator
+        instance.remove
+      end
+      model.getExteriorLightss.each do |ext_light|
+        next if not ext_light.name.to_s.include?('Fuel equipment') # some prototype building types model exterior elevators by this name
+        ext_light.remove
+      end
+
       elevators = model.add_elevators(args['template'])
       if elevators.nil?
         runner.registerInfo("No elevators added to the building.")
@@ -379,7 +412,15 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
 
     # add exterior lights (returns a hash where key is lighting type and value is exteriorLights object)
     if args['add_exterior_lights']
-      exterior_lights = model.add_typical_exterior_lights(args['template'],args['exterior_lighting_zone'].chars[0].to_i)
+
+      if args['remove_objects']
+        model.getExteriorLightss.each do |ext_light|
+          next if ext_light.name.to_s.include?('Fuel equipment') # some prototype building types model exterior elevators by this name
+          ext_light.remove
+        end
+      end
+
+      exterior_lights = model.add_typical_exterior_lights(args['template'],args['exterior_lighting_zone'].chars[0].to_i,args['onsite_parking_fraction'])
       exterior_lights.each do |k,v|
         runner.registerInfo("Adding Exterior Lights named #{v.exteriorLightsDefinition.name} with design level of #{v.exteriorLightsDefinition.designLevel} * #{OpenStudio::toNeatString(v.multiplier,0,true)}.")
       end
@@ -387,6 +428,12 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
 
     # add_exhaust
     if args['add_exhaust']
+
+      # remove exhaust objects
+      if args['remove_objects']
+        model.getFanZoneExhausts.each { |i| i.remove }
+      end
+
       zone_exhaust_fans = model.add_exhaust(args['template'],args['kitchen_makeup']) # second argument is strategy for finding makeup zones for exhaust zones
       zone_exhaust_fans.each do |k,v|
         max_flow_rate_ip = OpenStudio::convert(k.maximumFlowRate.get,"m^3/s","cfm").get
@@ -403,6 +450,13 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
 
     # add service water heating demand and supply
     if args['add_swh']
+
+      # remove water use equipment and water use connections
+      if args['remove_objects']
+        model.getWaterUseEquipments.each { |i| i.remove }
+        model.getWaterUseConnectionss.each { |i| i.remove }
+      end
+
       typical_swh = model.add_typical_swh(args['template'])
       midrise_swh_loops = []
       stripmall_swh_loops = []
@@ -430,99 +484,158 @@ class CreateTypicalBuildingFromModel < OpenStudio::Ruleset::ModelUserScript
 
     # todo - when add methods below add bool to enable/disable them with default value to true
 
-
     # todo - add daylight controls
-
+    # remove daylight controls
+    #if args['remove_objects']
+    #  model.getDaylightingControls.each { |i| i.remove }
+    #end
 
     # todo - add refrigeration
-
+    # remove water use equipment and water use connections
+    #if args['remove_objects']
+    #  model.getRefrigerationSystems.each { |i| i.remove }
+    #end
 
     # todo - add internal mass
-
+    # remove internal mass
+    #if args['remove_objects']
+    #  model.getSpaceLoads.each do |instance|
+    #    next if not instance.to_InternalMass.is_initialized
+    #    instance.remove
+    #  end
+    #end
 
     # todo - add slab modeling and slab insulation
-
 
     # todo - fuel customization for cooking and laundry
     # works by switching some fraction of electric loads to gas if requested (assuming base load is electric)
 
-    # add hvac system (should this have a bool to skip
-    case args['system_type']
-    when 'Inferred'
-    
-      # Determine the number of stories
-      num_stories = model.effective_num_stories[:above_grade]
+    # add thermostats
+    if args['add_thermostat']
 
-      # Get the hvac delivery type enum
-      hvac_delivery = case args['hvac_delivery_type']
-                      when 'Forced Air'
-                        'air'
-                      when 'Hydronic'
-                        'hydronic'
+      # remove thermostats
+      if args['remove_objects']
+        model.getThermostatSetpointDualSetpoints.each { |i| i.remove }
+      end
+
+      model.getSpaceTypes.each do |space_type|
+
+        # create thermostat schedules
+        # apply internal load schedules
+        # the last bool test it to make thermostat schedules. They are added to the model but not assigned
+        space_type.apply_internal_load_schedules(args['template'],false,false,false,false,false,false,true)
+
+        # identify thermal thermostat and apply to zones (apply_internal_load_schedules names )
+        model.getThermostatSetpointDualSetpoints.each do |thermostat|
+          next if not thermostat.name.to_s.include?(space_type.name.to_s)
+          runner.registerInfo("Assigning #{thermostat.name} to thermal zones with #{space_type.name} assigned.")
+          space_type.spaces.each do |space|
+            next if not space.thermalZone.is_initialized
+            space.thermalZone.get.setThermostatSetpointDualSetpoint(thermostat)
+          end
+          next
+        end
+
+      end
+    end
+
+    # add hvac system
+    if args['add_hvac']
+
+      # remove HVAC objects
+      if args['remove_objects']
+        model.getLoops.each { |i| i.remove }
+        model.getZoneHVACComponents.each { |i| i.remove }
+      end
+
+      case args['system_type']
+        when 'Inferred'
+
+          # Determine the number of stories
+          num_stories = model.effective_num_stories[:above_grade]
+
+          # Get the hvac delivery type enum
+          hvac_delivery = case args['hvac_delivery_type']
+                            when 'Forced Air'
+                              'air'
+                            when 'Hydronic'
+                              'hydronic'
+                          end
+
+          # Get the area and determine if primarily res or nonres
+          areas = model.residential_and_nonresidential_floor_areas(args['template'])
+          area_type = if areas['residential'] > areas['nonresidential']
+                        'residential'
+                      else
+                        'nonresidential'
                       end
+          area_m2 = areas['residential'] + areas['nonresidential']
 
-      # Get the area and determine if primarily res or nonres
-      areas = model.residential_and_nonresidential_floor_areas(args['template'])
-      area_type = if areas['residential'] > areas['nonresidential']
-                    'residential'
-                  else
-                    'nonresidential'
-                  end
-      area_m2 = areas['residential'] + areas['nonresidential']
-            
-      # Infer the HVAC system type
-      sys_type, central_htg_fuel, zone_htg_fuel, clg_fuel = model.typical_hvac_system_type(args['template'],
-                                                                                           climate_zone,
-                                                                                           area_type,
-                                                                                           hvac_delivery,
-                                                                                           args['htg_src'],
-                                                                                           args['clg_src'],
-                                                                                           area_m2,
-                                                                                           num_stories)
+          # Infer the HVAC system type
+          sys_type, central_htg_fuel, zone_htg_fuel, clg_fuel = model.typical_hvac_system_type(args['template'],
+                                                                                               climate_zone,
+                                                                                               area_type,
+                                                                                               hvac_delivery,
+                                                                                               args['htg_src'],
+                                                                                               args['clg_src'],
+                                                                                               area_m2,
+                                                                                               num_stories)
 
-      # Group the zones by story
-      story_groups = model.group_zones_by_story(model.getThermalZones)
-      
-      # Add the inferred HVAC system for each story.
-      # Single-zone systems will get one per zone.
-      story_groups.each do |zones|
-        model.add_hvac_system(args['template'], sys_type, central_htg_fuel, zone_htg_fuel, clg_fuel, zones)
+          # Group the zones by story
+          story_groups = model.group_zones_by_story(model.getThermalZones)
+
+          # Add the inferred HVAC system for each story.
+          # Single-zone systems will get one per zone.
+          story_groups.each do |zones|
+            model.add_hvac_system(args['template'], sys_type, central_htg_fuel, zone_htg_fuel, clg_fuel, zones)
+          end
+
+        else
+
+          # Group the zones by story
+          story_groups = model.group_zones_by_story(model.getThermalZones)
+
+          # Add the user specified HVAC system for each story.
+          # Single-zone systems will get one per zone.
+          story_groups.each do |zones|
+            model.add_cbecs_hvac_system(args['template'], args['system_type'], zones)
+          end
+
       end
-
-    else
-
-      # Group the zones by story
-      story_groups = model.group_zones_by_story(model.getThermalZones)
-      
-      # Add the user specified HVAC system for each story.
-      # Single-zone systems will get one per zone.
-      story_groups.each do |zones|
-        model.add_cbecs_hvac_system(args['template'], args['system_type'], zones)
-      end
-
     end
 
     # todo - hours of operation customization (initially using existing measure downstream of this one)
     # not clear yet if this is altering existing schedules, or additional inputs when schedules first requested
 
     # set hvac controls and efficiencies (this should be last model articulation element)
-    case args['system_type']
-    when "Inferred", "Ideal Air Loads"
-    
-    else
-      # Set the heating and cooling sizing parameters
-      model.apply_prm_sizing_parameters
+    if args['add_hvac']
+      case args['system_type']
+        when "Inferred", "Ideal Air Loads"
 
-      # Perform a sizing run
-      if model.runSizingRun("#{Dir.pwd}/SR1") == false
-        return false
+        else
+          # Set the heating and cooling sizing parameters
+          model.apply_prm_sizing_parameters
+
+          # Perform a sizing run
+          if model.runSizingRun("#{Dir.pwd}/SR1") == false
+            return false
+          end
+
+          # Apply the prototype HVAC assumptions
+          model.apply_prototype_hvac_assumptions(primary_bldg_type, args['template'], climate_zone)
+
+          # Apply the HVAC efficiency standard
+          model.apply_hvac_efficiency_standard(args['template'], climate_zone)
       end
+    end
 
-      # Apply the prototype HVAC assumptions
-      model.apply_prototype_hvac_assumptions(args['building_type'], args['template'], climate_zone)
- 
-      # Apply the HVAC efficiency standard
-      model.apply_hvac_efficiency_standard(args['template'], climate_zone)
+    # remove everything but spaces, zones, and stub space types (extend as needed for additional objects, may make bool arg for this)
+    if args['remove_objects']
+      model.purgeUnusedResourceObjects
+      objects_after_cleanup = initial_objects - model.getModelObjects.size
+      if objects_after_cleanup > 0
+        runner.registerInfo("Removing #{objects_after_cleanup} objects from model")
+      end
     end
 
     # report final condition of model

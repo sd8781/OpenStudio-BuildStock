@@ -593,6 +593,7 @@ module OsLib_Geometry
       # make new story
       story = OpenStudio::Model::BuildingStory.new(model)
       story.setNominalFloortoFloorHeight(story_data[:space_height]) # not used for anything
+      story.setNominalZCoordinate (story_data[:space_origin_z]) # not used for anything
       story.setName("Story #{story_name}")
 
       # multiplier values for adjacent stories to be altered below as needed

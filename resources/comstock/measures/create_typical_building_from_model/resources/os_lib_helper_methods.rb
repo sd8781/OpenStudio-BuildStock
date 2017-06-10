@@ -224,7 +224,11 @@ module OsLib_HelperMethods
     runner.workflow.workflowSteps.each do |step|
       if step.to_MeasureStep.is_initialized
         measure_step = step.to_MeasureStep.get
-        measure_name = measure_step.name.get # this is instance name in PAT
+        
+        measure_name = measure_step.measureDirName
+        if measure_step.name.is_initialized
+          measure_name = measure_step.name.get # this is instance name in PAT
+        end
         if measure_step.result.is_initialized
           result = measure_step.result.get
           result.stepValues.each do |arg|

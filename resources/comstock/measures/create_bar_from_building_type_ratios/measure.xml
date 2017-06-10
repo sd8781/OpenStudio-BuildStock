@@ -2,8 +2,8 @@
   <schema_version>3.0</schema_version>
   <name>create_bar_from_building_type_ratios</name>
   <uid>6e3a14f8-c3c7-4e03-bc51-bef8a52e1a05</uid>
-  <version_id>e9c14525-b321-43fd-9e74-bf11698b7e01</version_id>
-  <version_modified>20170427T191108Z</version_modified>
+  <version_id>b032db7d-33c2-4f97-b9d6-e3b6f5dc1547</version_id>
+  <version_modified>20170605T211455Z</version_modified>
   <xml_checksum>2AF3A68E</xml_checksum>
   <class_name>CreateBarFromBuildingTypeRatios</class_name>
   <display_name>Create Bar From Building Type Ratios</display_name>
@@ -12,7 +12,7 @@
   <arguments>
     <argument>
       <name>bldg_type_a</name>
-      <display_name>Primary Building Type.</display_name>
+      <display_name>Primary Building Type</display_name>
       <type>Choice</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -98,7 +98,7 @@
     </argument>
     <argument>
       <name>bldg_type_b</name>
-      <display_name>Building Type B.</display_name>
+      <display_name>Building Type B</display_name>
       <type>Choice</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -192,7 +192,7 @@
     </argument>
     <argument>
       <name>bldg_type_c</name>
-      <display_name>Building Type C.</display_name>
+      <display_name>Building Type C</display_name>
       <type>Choice</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -286,7 +286,7 @@
     </argument>
     <argument>
       <name>bldg_type_d</name>
-      <display_name>Building Type D.</display_name>
+      <display_name>Building Type D</display_name>
       <type>Choice</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -377,6 +377,16 @@
       <required>true</required>
       <model_dependent>false</model_dependent>
       <default_value>1</default_value>
+    </argument>
+    <argument>
+      <name>single_floor_area</name>
+      <display_name>Single Floor Area</display_name>
+      <description>Non-zero value will fix the single floor area, overriding a user entry for Total Building Floor Area</description>
+      <type>Double</type>
+      <units>ft^2</units>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>0</default_value>
     </argument>
     <argument>
       <name>total_bldg_floor_area</name>
@@ -656,25 +666,25 @@
       <filename>os_lib_geometry.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>C3DFD5CE</checksum>
-    </file>
-    <file>
-      <filename>os_lib_helper_methods.rb</filename>
-      <filetype>rb</filetype>
-      <usage_type>resource</usage_type>
-      <checksum>6B1003F3</checksum>
-    </file>
-    <file>
-      <filename>create_bar_from_building_type_ratios_test.rb</filename>
-      <filetype>rb</filetype>
-      <usage_type>test</usage_type>
-      <checksum>FB8A2739</checksum>
+      <checksum>ABF2B8A1</checksum>
     </file>
     <file>
       <filename>os_lib_model_generation.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>29BABEF9</checksum>
+      <checksum>E4AAF0B2</checksum>
+    </file>
+    <file>
+      <filename>os_lib_helper_methods.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>02263B97</checksum>
+    </file>
+    <file>
+      <filename>os_lib_model_simplification.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>EA7B0C98</checksum>
     </file>
     <file>
       <version>
@@ -685,13 +695,13 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>EFD978BC</checksum>
+      <checksum>13303D56</checksum>
     </file>
     <file>
-      <filename>os_lib_model_simplification.rb</filename>
+      <filename>create_bar_from_building_type_ratios_test.rb</filename>
       <filetype>rb</filetype>
-      <usage_type>resource</usage_type>
-      <checksum>BC2F4295</checksum>
+      <usage_type>test</usage_type>
+      <checksum>262A113F</checksum>
     </file>
   </files>
 </measure>

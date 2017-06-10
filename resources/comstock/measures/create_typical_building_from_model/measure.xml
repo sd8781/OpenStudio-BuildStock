@@ -2,8 +2,8 @@
   <schema_version>3.0</schema_version>
   <name>create_typical_building_from_model</name>
   <uid>339a2e3a-273c-4494-bb50-bfe586a0647c</uid>
-  <version_id>352d45a4-342a-497f-aadc-da57d10cf91f</version_id>
-  <version_modified>20170427T230939Z</version_modified>
+  <version_id>5a782606-b87e-42df-9f80-1260ea2e9208</version_id>
+  <version_modified>20170609T231510Z</version_modified>
   <xml_checksum>EE13F09F</xml_checksum>
   <class_name>CreateTypicalBuildingFromModel</class_name>
   <display_name>Create Typical Building from Model</display_name>
@@ -45,88 +45,8 @@
       </choices>
     </argument>
     <argument>
-      <name>building_type</name>
-      <display_name>Primary Building Type</display_name>
-      <description>The building type that makes up a majority of the area.  Used for HVAC assumptions.</description>
-      <type>Choice</type>
-      <required>true</required>
-      <model_dependent>false</model_dependent>
-      <default_value>SmallOffice</default_value>
-      <choices>
-        <choice>
-          <value>SecondarySchool</value>
-          <display_name>SecondarySchool</display_name>
-        </choice>
-        <choice>
-          <value>PrimarySchool</value>
-          <display_name>PrimarySchool</display_name>
-        </choice>
-        <choice>
-          <value>SmallOffice</value>
-          <display_name>SmallOffice</display_name>
-        </choice>
-        <choice>
-          <value>MediumOffice</value>
-          <display_name>MediumOffice</display_name>
-        </choice>
-        <choice>
-          <value>LargeOffice</value>
-          <display_name>LargeOffice</display_name>
-        </choice>
-        <choice>
-          <value>SmallHotel</value>
-          <display_name>SmallHotel</display_name>
-        </choice>
-        <choice>
-          <value>LargeHotel</value>
-          <display_name>LargeHotel</display_name>
-        </choice>
-        <choice>
-          <value>Warehouse</value>
-          <display_name>Warehouse</display_name>
-        </choice>
-        <choice>
-          <value>RetailStandalone</value>
-          <display_name>RetailStandalone</display_name>
-        </choice>
-        <choice>
-          <value>RetailStripmall</value>
-          <display_name>RetailStripmall</display_name>
-        </choice>
-        <choice>
-          <value>QuickServiceRestaurant</value>
-          <display_name>QuickServiceRestaurant</display_name>
-        </choice>
-        <choice>
-          <value>FullServiceRestaurant</value>
-          <display_name>FullServiceRestaurant</display_name>
-        </choice>
-        <choice>
-          <value>MidriseApartment</value>
-          <display_name>MidriseApartment</display_name>
-        </choice>
-        <choice>
-          <value>HighriseApartment</value>
-          <display_name>HighriseApartment</display_name>
-        </choice>
-        <choice>
-          <value>Hospital</value>
-          <display_name>Hospital</display_name>
-        </choice>
-        <choice>
-          <value>Outpatient</value>
-          <display_name>Outpatient</display_name>
-        </choice>
-        <choice>
-          <value>SuperMarket</value>
-          <display_name>SuperMarket</display_name>
-        </choice>
-      </choices>
-    </argument>
-    <argument>
       <name>system_type</name>
       <display_name>HVAC System Type</display_name>
-      <description>The HVAC system that will be put into the model.</description>
       <type>Choice</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -285,6 +205,26 @@
           <display_name>VAV w/ reheat</display_name>
         </choice>
         <choice>
+          <value>VAV w/PFP boxes</value>
+          <display_name>VAV w/PFP boxes</display_name>
+        </choice>
+        <choice>
+          <value>VAV w/ gas reheat</value>
+          <display_name>VAV w/ gas reheat</display_name>
+        </choice>
+        <choice>
+          <value>VAV w/ zone unit heaters</value>
+          <display_name>VAV w/ zone unit heaters</display_name>
+        </choice>
+        <choice>
+          <value>VAV w/ electric baseboards</value>
+          <display_name>VAV w/ electric baseboards</display_name>
+        </choice>
+        <choice>
+          <value>VAV cool with zone heat pump heating</value>
+          <display_name>VAV cool with zone heat pump heating</display_name>
+        </choice>
+        <choice>
           <value>PVAV w/ reheat</value>
           <display_name>PVAV w/ reheat</display_name>
         </choice>
@@ -296,12 +236,44 @@
           <value>Residential forced air</value>
           <display_name>Residential forced air</display_name>
         </choice>
+        <choice>
+          <value>Residential forced air cooling hot water baseboards</value>
+          <display_name>Residential forced air cooling hot water baseboards</display_name>
+        </choice>
+        <choice>
+          <value>Residential forced air w/district hot water</value>
+          <display_name>Residential forced air w/district hot water</display_name>
+        </choice>
+        <choice>
+          <value>Residential heat pump</value>
+          <display_name>Residential heat pump</display_name>
+        </choice>
+        <choice>
+          <value>Forced air furnace</value>
+          <display_name>Forced air furnace</display_name>
+        </choice>
+        <choice>
+          <value>Forced air furnace district chilled water fan coil</value>
+          <display_name>Forced air furnace district chilled water fan coil</display_name>
+        </choice>
+        <choice>
+          <value>Forced air furnace direct evap cooler</value>
+          <display_name>Forced air furnace direct evap cooler</display_name>
+        </choice>
+        <choice>
+          <value>Residential AC w/ no heat</value>
+          <display_name>Residential AC w/ no heat</display_name>
+        </choice>
+        <choice>
+          <value>Residential AC w/electric baseboards</value>
+          <display_name>Residential AC w/electric baseboards</display_name>
+        </choice>
       </choices>
     </argument>
     <argument>
       <name>hvac_delivery_type</name>
       <display_name>HVAC System Delivery Type</display_name>
-      <description>How the HVAC system delivers heating or cooling to the zone.  Only used if HVAC System Type is Inferred. </description>
+      <description>How the HVAC system delivers heating or cooling to the zone.</description>
       <type>Choice</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -320,7 +292,7 @@
     <argument>
       <name>htg_src</name>
       <display_name>HVAC Heating Source</display_name>
-      <description>The primary source of heating used by HVAC systems in the model.  Only used if HVAC System Type is Inferred.</description>
+      <description>The primary source of heating used by HVAC systems in the model.</description>
       <type>Choice</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -347,7 +319,7 @@
     <argument>
       <name>clg_src</name>
       <display_name>HVAC Cooling Source</display_name>
-      <description>The primary source of cooling used by HVAC systems in the model.  Only used if HVAC System Type is Inferred.</description>
+      <description>The primary source of cooling used by HVAC systems in the model.</description>
       <type>Choice</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -364,72 +336,6 @@
         <choice>
           <value>DistrictAmbient</value>
           <display_name>DistrictAmbient</display_name>
-        </choice>
-      </choices>
-    </argument>
-    <argument>
-      <name>fuel_type_swh</name>
-      <display_name>Fuel Type for Service Water Heating Supply</display_name>
-      <type>Choice</type>
-      <required>true</required>
-      <model_dependent>false</model_dependent>
-      <default_value>Infer from HVAC System Type</default_value>
-      <choices>
-        <choice>
-          <value>Electric</value>
-          <display_name>Electric</display_name>
-        </choice>
-        <choice>
-          <value>Gas</value>
-          <display_name>Gas</display_name>
-        </choice>
-        <choice>
-          <value>Infer from HVAC System Type</value>
-          <display_name>Infer from HVAC System Type</display_name>
-        </choice>
-      </choices>
-    </argument>
-    <argument>
-      <name>fuel_type_cooking</name>
-      <display_name>Fuel Type for Cooking Loads</display_name>
-      <type>Choice</type>
-      <required>true</required>
-      <model_dependent>false</model_dependent>
-      <default_value>Gas</default_value>
-      <choices>
-        <choice>
-          <value>Electric</value>
-          <display_name>Electric</display_name>
-        </choice>
-        <choice>
-          <value>Gas</value>
-          <display_name>Gas</display_name>
-        </choice>
-        <choice>
-          <value>Infer from HVAC System Type</value>
-          <display_name>Infer from HVAC System Type</display_name>
-        </choice>
-      </choices>
-    </argument>
-    <argument>
-      <name>fuel_type_laundry</name>
-      <display_name>Fuel Type for Laundry Dryer Loads</display_name>
-      <type>Choice</type>
-      <required>true</required>
-      <model_dependent>false</model_dependent>
-      <default_value>Electric</default_value>
-      <choices>
-        <choice>
-          <value>Electric</value>
-          <display_name>Electric</display_name>
-        </choice>
-        <choice>
-          <value>Gas</value>
-          <display_name>Gas</display_name>
-        </choice>
-        <choice>
-          <value>Infer from HVAC System Type</value>
-          <display_name>Infer from HVAC System Type</display_name>
         </choice>
       </choices>
     </argument>
@@ -488,6 +394,44 @@
       </choices>
     </argument>
     <argument>
+      <name>add_constructions</name>
+      <display_name>Add Constructions to Model</display_name>
+      <description>Construction Set will be appied to entire building</description>
+      <type>Boolean</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>true</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>add_space_type_loads</name>
+      <display_name>Add Space Type Loads to Model</display_name>
+      <description>Populate existing space types in model with internal loads.</description>
+      <type>Boolean</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>true</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
       <name>add_elevators</name>
       <display_name>Add Elevators to Model</display_name>
       <description>Elevators will be add directly to space in model vs. being applied to a space type.</description>
@@ -526,6 +470,15 @@
       </choices>
     </argument>
     <argument>
+      <name>onsite_parking_fraction</name>
+      <display_name>Onsite Parking Fraction</display_name>
+      <description>If set to 0 no exterior lighting for parking will be added</description>
+      <type>Double</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>1</default_value>
+    </argument>
+    <argument>
       <name>add_exhaust</name>
       <display_name>Add Exhaust Fans to Model</display_name>
       <description>Depending upon building type exhaust fans can be in kitchens, restrooms or other space types</description>
@@ -548,6 +501,63 @@
       <name>add_swh</name>
       <display_name>Add Service Water Heating to Model</display_name>
       <description>This will add both the supply and demand side of service water heating.</description>
+      <type>Boolean</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>true</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>add_thermostat</name>
+      <display_name>Add Thermostats</display_name>
+      <description>Add Thermost to model based on Space Type Standards information of spaces assigned to thermal zones.</description>
+      <type>Boolean</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>true</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>add_hvac</name>
+      <display_name>Add HVAC System to Model</display_name>
+      <description>Add HVAC System and thermostats to model</description>
+      <type>Boolean</type>
+      <required>true</required>
+      <model_dependent>false</model_dependent>
+      <default_value>true</default_value>
+      <choices>
+        <choice>
+          <value>true</value>
+          <display_name>true</display_name>
+        </choice>
+        <choice>
+          <value>false</value>
+          <display_name>false</display_name>
+        </choice>
+      </choices>
+    </argument>
+    <argument>
+      <name>remove_objects</name>
+      <display_name>Clean Model of non-gemoetry objects</display_name>
+      <description>Only removes objects of type that are selected to be added.</description>
       <type>Boolean</type>
       <required>true</required>
       <model_dependent>false</model_dependent>
@@ -610,18 +620,6 @@
       <checksum>AFAF7439</checksum>
     </file>
     <file>
-      <filename>os_lib_helper_methods.rb</filename>
-      <filetype>rb</filetype>
-      <usage_type>resource</usage_type>
-      <checksum>6B1003F3</checksum>
-    </file>
-    <file>
-      <filename>create_typical_building_from_model_test.rb</filename>
-      <filetype>rb</filetype>
-      <usage_type>test</usage_type>
-      <checksum>3BAFCC9C</checksum>
-    </file>
-    <file>
       <filename>test.osw</filename>
       <filetype>osw</filetype>
       <usage_type>test</usage_type>
@@ -631,25 +629,31 @@
       <filename>os_lib_model_generation.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>29BABEF9</checksum>
+      <checksum>E4AAF0B2</checksum>
     </file>
     <file>
-      <filename>test_hvac.rb</filename>
+      <filename>os_lib_helper_methods.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>02263B97</checksum>
+    </file>
+    <file>
+      <filename>LargeOffice04.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>1F375CE5</checksum>
+    </file>
+    <file>
+      <filename>create_typical_building_from_model_test.rb</filename>
       <filetype>rb</filetype>
       <usage_type>test</usage_type>
-      <checksum>95819D11</checksum>
-    </file>
-    <file>
-      <filename>test_hvac_output.log</filename>
-      <filetype>log</filetype>
-      <usage_type>test</usage_type>
-      <checksum>D5DA684B</checksum>
+      <checksum>4BA05A49</checksum>
     </file>
     <file>
       <filename>Model.hvac.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>BC7C875F</checksum>
+      <checksum>258011A8</checksum>
     </file>
     <file>
       <version>
@@ -660,7 +664,25 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>3A8E624C</checksum>
+      <checksum>31C3295C</checksum>
+    </file>
+    <file>
+      <filename>test_hvac_output.log</filename>
+      <filetype>log</filetype>
+      <usage_type>test</usage_type>
+      <checksum>D5DA684B</checksum>
+    </file>
+    <file>
+      <filename>TODO.log</filename>
+      <filetype>log</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>C9F01FDC</checksum>
+    </file>
+    <file>
+      <filename>test_hvac.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>test</usage_type>
+      <checksum>D0265475</checksum>
     </file>
   </files>
 </measure>

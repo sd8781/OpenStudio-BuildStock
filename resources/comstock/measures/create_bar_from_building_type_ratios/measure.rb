@@ -36,7 +36,7 @@ class CreateBarFromBuildingTypeRatios < OpenStudio::Ruleset::ModelUserScript
 
     # Make an argument for the bldg_type_a
     bldg_type_a = OpenStudio::Ruleset::OSArgument::makeChoiceArgument('bldg_type_a', get_building_types(), true)
-    bldg_type_a.setDisplayName('Primary Building Type.')
+    bldg_type_a.setDisplayName('Primary Building Type')
     bldg_type_a.setDefaultValue('SmallOffice')
     args << bldg_type_a
 
@@ -48,7 +48,7 @@ class CreateBarFromBuildingTypeRatios < OpenStudio::Ruleset::ModelUserScript
 
     # Make an argument for the bldg_type_b
     bldg_type_b = OpenStudio::Ruleset::OSArgument::makeChoiceArgument('bldg_type_b', get_building_types(), true)
-    bldg_type_b.setDisplayName('Building Type B.')
+    bldg_type_b.setDisplayName('Building Type B')
     bldg_type_b.setDefaultValue('SmallOffice')
     args << bldg_type_b
 
@@ -66,7 +66,7 @@ class CreateBarFromBuildingTypeRatios < OpenStudio::Ruleset::ModelUserScript
 
     # Make an argument for the bldg_type_c
     bldg_type_c = OpenStudio::Ruleset::OSArgument::makeChoiceArgument('bldg_type_c', get_building_types(), true)
-    bldg_type_c.setDisplayName('Building Type C.')
+    bldg_type_c.setDisplayName('Building Type C')
     bldg_type_c.setDefaultValue('SmallOffice')
     args << bldg_type_c
 
@@ -84,7 +84,7 @@ class CreateBarFromBuildingTypeRatios < OpenStudio::Ruleset::ModelUserScript
 
     # Make an argument for the bldg_type_d
     bldg_type_d = OpenStudio::Ruleset::OSArgument::makeChoiceArgument('bldg_type_d', get_building_types(), true)
-    bldg_type_d.setDisplayName('Building Type D.')
+    bldg_type_d.setDisplayName('Building Type D')
     bldg_type_d.setDefaultValue('SmallOffice')
     args << bldg_type_d
 
@@ -99,6 +99,15 @@ class CreateBarFromBuildingTypeRatios < OpenStudio::Ruleset::ModelUserScript
     bldg_type_d_num_units.setDisplayName("Building Type D Number of Units")
     bldg_type_d_num_units.setDefaultValue(1)
     args << bldg_type_d_num_units
+
+    # Make argument for single_floor_area
+    single_floor_area = OpenStudio::Ruleset::OSArgument.makeDoubleArgument("single_floor_area", true)
+    single_floor_area.setDisplayName("Single Floor Area")
+    single_floor_area.setDescription("Non-zero value will fix the single floor area, overriding a user entry for Total Building Floor Area")
+    single_floor_area.setUnits("ft^2")
+    single_floor_area.setDefaultValue(0.0)
+
+    args << single_floor_area
 
     # Make argument for total_bldg_floor_area
     total_bldg_floor_area = OpenStudio::Ruleset::OSArgument.makeDoubleArgument("total_bldg_floor_area", true)
@@ -248,14 +257,18 @@ class CreateBarFromBuildingTypeRatios < OpenStudio::Ruleset::ModelUserScript
     if !args then return false end
 
     # check expected values of double arguments
-    fraction_args = ["bldg_type_b_fract_bldg_area","bldg_type_c_fract_bldg_area","bldg_type_d_fract_bldg_area","wwr","party_wall_fraction"]
+    fraction_args = ["bldg_type_b_fract_bldg_area",
+                     "bldg_type_c_fract_bldg_area",
+                     "bldg_type_d_fract_bldg_area",
+                     "wwr","party_wall_fraction"
+    ]
     fraction = OsLib_HelperMethods.checkDoubleAndIntegerArguments(runner, user_arguments,{"min"=>0.0,"max"=>1.0,"min_eq_bool"=>true,"max_eq_bool"=>true,"arg_array" =>fraction_args})
 
     positive_args = ["total_bldg_floor_area"]
     positive = OsLib_HelperMethods.checkDoubleAndIntegerArguments(runner, user_arguments,{"min"=>0.0,"max"=>nil,"min_eq_bool"=>false,"max_eq_bool"=>false,"arg_array" =>positive_args})
 
     one_or_greater_args = ["num_stories_above_grade"]
-    one_or_greater = OsLib_HelperMethods.checkDoubleAndIntegerArguments(runner, user_arguments,{"min"=>1.0,"max"=>nil,"min_eq_bool"=>true,"max_eq_bool"=>false,"arg_array" =>positive_args})
+    one_or_greater = OsLib_HelperMethods.checkDoubleAndIntegerArguments(runner, user_arguments,{"min"=>1.0,"max"=>nil,"min_eq_bool"=>true,"max_eq_bool"=>false,"arg_array" =>one_or_greater_args})
 
     non_neg_args = ["bldg_type_a_num_units",
                     "bldg_type_c_num_units",
@@ -266,7 +279,8 @@ class CreateBarFromBuildingTypeRatios < OpenStudio::Ruleset::ModelUserScript
                     "party_wall_stories_north",
                     "party_wall_stories_south",
                     "party_wall_stories_east",
-                    "party_wall_stories_west"
+                    "party_wall_stories_west",
+                    'single_floor_area'
     ]
     non_neg = OsLib_HelperMethods.checkDoubleAndIntegerArguments(runner, user_arguments,{"min"=>0.0,"max"=>nil,"min_eq_bool"=>true,"max_eq_bool"=>false,"arg_array" =>non_neg_args})
 
@@ -380,9 +394,20 @@ class CreateBarFromBuildingTypeRatios < OpenStudio::Ruleset::ModelUserScript
 
     # calculate length and with of bar
     # todo - update slicing to nicely handle aspect ratio less than 1
+
     total_bldg_floor_area_si = OpenStudio.convert(args['total_bldg_floor_area'],'ft^2','m^2').get
+    single_floor_area_si = OpenStudio.convert(args['single_floor_area'],'ft^2','m^2').get
+
     num_stories = args['num_stories_below_grade'] + args['num_stories_above_grade']
-    footprint_si = total_bldg_floor_area_si / num_stories.to_f
+
+    # handle user-assigned single floor plate size condition
+    if args['single_floor_area'] > 0.0
+      footprint_si = single_floor_area_si
+      total_bldg_floor_area_si = single_floor_area_si * num_stories.to_f
+      runner.registerWarning("User-defined single floor area was used for calculation of total building floor area")
+    else
+      footprint_si = total_bldg_floor_area_si / num_stories.to_f
+    end
     floor_height_si = OpenStudio.convert(args['floor_height'],'ft','m').get
     width = Math.sqrt(footprint_si/args['ns_to_ew_ratio'])
     length = footprint_si/width
@@ -604,7 +629,7 @@ class CreateBarFromBuildingTypeRatios < OpenStudio::Ruleset::ModelUserScript
     end
 
     # create bar
-    create_bar(runner,model,bar_hash)
+    create_bar(runner,model,bar_hash,args['story_multiplier'])
 
     # check expected floor areas against actual
       model.getSpaceTypes.sort.each do |space_type|
@@ -639,11 +664,11 @@ class CreateBarFromBuildingTypeRatios < OpenStudio::Ruleset::ModelUserScript
     runner.registerInfo("Target party wall fraction is #{args['party_wall_fraction']}. Realized fraction is #{actual_party_wall_fraction.round(2)}")
     runner.registerValue("party_wall_fraction_actual",actual_party_wall_fraction)
 
-    # add test looking for exessive exterior roof area (indication of probelm with intersection and or surface matching)
+    # test for excessive exterior roof area (indication of problem with intersection and or surface matching)
     ext_roof_area = model.getBuilding.exteriorSurfaceArea - model.getBuilding.exteriorWallArea
     expected_roof_area = args['total_bldg_floor_area']/(args['num_stories_above_grade'] + args['num_stories_below_grade']).to_f
-    if ext_roof_area > expected_roof_area
-      runner.registerError("Roof area larger than expected, may indicate probelm with itnter-floor surface intersection or matching.")
+    if ext_roof_area > expected_roof_area && single_floor_area_si == 0.0 # only test if using whole-building area input
+      runner.registerError("Roof area larger than expected, may indicate problem with inter-floor surface intersection or matching.")
       return false
     end
 

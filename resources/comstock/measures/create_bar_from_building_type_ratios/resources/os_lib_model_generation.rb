@@ -413,7 +413,7 @@ module OsLib_ModelGeneration
 
   # create_bar(runner,model,bar_hash)
   # measures using this method should include OsLibGeometry and OsLibHelperMethods
-  def create_bar(runner,model,bar_hash)
+  def create_bar(runner,model,bar_hash,story_multiplier_method = "Basements Ground Mid Top")
 
     # warn about site shading
     if model.getSite.shadingSurfaceGroups.size > 0
@@ -462,7 +462,7 @@ module OsLib_ModelGeneration
         if stories_flat.size > 0
           stories_flat.last.each {|k, v| compare_hash[k] = flat_hash[k] if flat_hash[k] != v }
         end
-        if stories_flat.last == flat_hash or (compare_hash.size == 1 and compare_hash.include?(:multiplier))
+        if (story_multiplier_method != "None" && stories_flat.last == (flat_hash)) || (story_multiplier_method != "None" && compare_hash.size == 1 && compare_hash.include?(:multiplier))
           stories_flat.last[:multiplier] += v[:story_min_multiplier]
         else
           stories_flat << flat_hash

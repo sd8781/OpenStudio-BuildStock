@@ -273,11 +273,31 @@ module OsLib_ModelSimplification
 
         # ratios
         ratios = {}
-        ratios[:floor_area_ratio] = floor_area/collection_floor_area
-        ratios[:num_people_ratio] = num_people/collection_num_people
-        ratios[:ext_surface_area_ratio] = ext_surface_area/collection_ext_surface_area
-        ratios[:ext_wall_area_ratio] = ext_wall_area/collection_ext_wall_area
-        ratios[:volume_ratio] = volume/collection_volume
+        if collection_floor_area > 0
+          ratios[:floor_area_ratio] = floor_area/collection_floor_area
+        else
+          ratios[:floor_area_ratio] = 0.0
+        end
+        if collection_num_people > 0
+          ratios[:num_people_ratio] = num_people/collection_num_people
+        else
+          ratios[:num_people_ratio] = 0.0
+        end
+        if collection_ext_surface_area > 0
+          ratios[:ext_surface_area_ratio] = ext_surface_area/collection_ext_surface_area
+        else
+          ratios[:ext_surface_area_ratio] = 0.0
+        end
+        if collection_ext_wall_area > 0
+          ratios[:ext_wall_area_ratio] = ext_wall_area/collection_ext_wall_area
+        else
+          ratios[:ext_wall_area_ratio] = 0.0
+        end
+        if collection_volume > 0
+          ratios[:volume_ratio] = volume/collection_volume
+        else
+          ratios[:volume_ratio] = 0.0
+        end
 
         # populate blended space type with space type loads
         space_type_load_instances = blend_internal_loads(runner,model,space_type,blended_space_type,ratios,collection_floor_area,space_hash)
@@ -317,11 +337,31 @@ module OsLib_ModelSimplification
 
         # ratios
         ratios = {}
-        ratios[:floor_area_ratio] = floor_area/collection_floor_area
-        ratios[:num_people_ratio] = num_people/collection_num_people
-        ratios[:ext_surface_area_ratio] = ext_surface_area/collection_ext_surface_area
-        ratios[:ext_wall_area_ratio] = ext_wall_area/collection_ext_wall_area
-        ratios[:volume_ratio] = volume/collection_volume
+        if collection_floor_area > 0
+          ratios[:floor_area_ratio] = ext_surface_area/collection_floor_area
+        else
+          ratios[:floor_area_ratio] = 0.0
+        end
+        if collection_num_people > 0
+          ratios[:num_people_ratio] = ext_surface_area/collection_num_people
+        else
+          ratios[:num_people_ratio] = 0.0
+        end
+        if collection_ext_surface_area > 0
+          ratios[:ext_surface_area_ratio] = ext_surface_area/collection_ext_surface_area
+        else
+          ratios[:ext_surface_area_ratio] = 0.0
+        end
+        if collection_ext_wall_area > 0
+          ratios[:ext_wall_area_ratio] = ext_surface_area/collection_ext_wall_area
+        else
+          ratios[:ext_wall_area_ratio] = 0.0
+        end
+        if collection_volume > 0
+          ratios[:volume_ratio] = ext_surface_area/collection_volume
+        else
+          ratios[:volume_ratio] = 0.0
+        end
 
         # populate blended space type with space loads
         space_load_instances = blend_internal_loads(runner,model,space,blended_space_type,ratios,collection_floor_area,space_hash)
@@ -355,6 +395,16 @@ module OsLib_ModelSimplification
     ext_wall_area_ratio = ratios[:ext_wall_area_ratio]
     volume_ratio = ratios[:volume_ratio]
 
+    # for normalizing design level loads I need to know effective number of spaces instance is applied to
+    if source_space_or_space_type.to_Space.is_initialized
+      eff_num_spaces = source_space_or_space_type.multiplier
+    else
+      eff_num_spaces = 0
+      source_space_or_space_type.spaces.each do |space|
+        eff_num_spaces += space.multiplier
+      end
+    end
+
     # array of load instacnes re-assigned to blended space
     instances_array = []
 
@@ -368,7 +418,7 @@ module OsLib_ModelSimplification
         else
           cloned_load_def = load_def.clone(model).to_InternalMass.get
           orig_design_level = cloned_load_def.surfaceArea.get
-          cloned_load_def.setSurfaceAreaperSpaceFloorArea(load_inst.quantity * orig_design_level / (collection_floor_area * load_inst.multiplier))
+          cloned_load_def.setSurfaceAreaperSpaceFloorArea(eff_num_spaces * orig_design_level / collection_floor_area)
           cloned_load_def.setName("#{cloned_load_def.name} - pre-normalized value was #{orig_design_level.round} m^2.")
           load_inst.setInternalMassDefinition(cloned_load_def)
         end
@@ -399,7 +449,7 @@ module OsLib_ModelSimplification
         else
           cloned_load_def = load_def.clone(model).to_PeopleDefinition.get
           orig_design_level = cloned_load_def.numberofPeople.get
-          cloned_load_def.setPeopleperSpaceFloorArea(load_inst.quantity * orig_design_level / (collection_floor_area * load_inst.multiplier))
+          cloned_load_def.setPeopleperSpaceFloorArea(eff_num_spaces * orig_design_level / collection_floor_area)
           cloned_load_def.setName("#{cloned_load_def.name} - pre-normalized value was #{orig_design_level.round} people.")
           load_inst.setPeopleDefinition(cloned_load_def)
         end
@@ -425,7 +475,7 @@ module OsLib_ModelSimplification
         else
           cloned_load_def = load_def.clone(model).to_LightsDefinition.get
           orig_design_level = cloned_load_def.lightingLevel.get
-          cloned_load_def.setWattsperSpaceFloorArea(load_inst.quantity * orig_design_level / (collection_floor_area * load_inst.multiplier))
+          cloned_load_def.setWattsperSpaceFloorArea(eff_num_spaces * orig_design_level / collection_floor_area)
           cloned_load_def.setName("#{cloned_load_def.name} - pre-normalized value was #{orig_design_level.round} W.")
           load_inst.setLightsDefinition(cloned_load_def)
         end
@@ -463,7 +513,7 @@ module OsLib_ModelSimplification
         else
           cloned_load_def = load_def.clone(model).to_ElectricEquipmentDefinition.get
           orig_design_level = cloned_load_def.designLevel.get
-          cloned_load_def.setWattsperSpaceFloorArea(load_inst.quantity * orig_design_level / (collection_floor_area * load_inst.multiplier))
+          cloned_load_def.setWattsperSpaceFloorArea(eff_num_spaces * orig_design_level / collection_floor_area)
           cloned_load_def.setName("#{cloned_load_def.name} - pre-normalized value was #{orig_design_level.round} W.")
           load_inst.setElectricEquipmentDefinition(cloned_load_def)
         end
@@ -494,7 +544,7 @@ module OsLib_ModelSimplification
         else
           cloned_load_def = load_def.clone(model).to_GasEquipmentDefinition.get
           orig_design_level = cloned_load_def.designLevel.get
-          cloned_load_def.setWattsperSpaceFloorArea(load_inst.quantity * orig_design_level / (collection_floor_area * load_inst.multiplier))
+          cloned_load_def.setWattsperSpaceFloorArea(eff_num_spaces * orig_design_level / collection_floor_area)
           cloned_load_def.setName("#{cloned_load_def.name} - pre-normalized value was #{orig_design_level.round} W.")
           load_inst.setGasEquipmentDefinition(cloned_load_def)
         end
@@ -525,7 +575,7 @@ module OsLib_ModelSimplification
         else
           cloned_load_def = load_def.clone(model).to_HotWaterEquipmentDefinition.get
           orig_design_level = cloned_load_def.designLevel.get
-          cloned_load_def.setWattsperSpaceFloorArea(load_inst.quantity * orig_design_level / (collection_floor_area * load_inst.multiplier))
+          cloned_load_def.setWattsperSpaceFloorArea(eff_num_spaces * orig_design_level / collection_floor_area)
           cloned_load_def.setName("#{cloned_load_def.name} - pre-normalized value was #{orig_design_level.round} W.")
           load_inst.setHotWaterEquipmentDefinition(cloned_load_def)
         end
@@ -556,7 +606,7 @@ module OsLib_ModelSimplification
         else
           cloned_load_def = load_def.clone(model).to_SteamEquipmentDefinition.get
           orig_design_level = cloned_load_def.designLevel.get
-          cloned_load_def.setWattsperSpaceFloorArea(load_inst.quantity * orig_design_level / (collection_floor_area * load_inst.multiplier))
+          cloned_load_def.setWattsperSpaceFloorArea(eff_num_spaces * orig_design_level / collection_floor_area)
           cloned_load_def.setName("#{cloned_load_def.name} - pre-normalized value was #{orig_design_level.round} W.")
           load_inst.setSteamEquipmentDefinition(cloned_load_def)
         end
@@ -587,7 +637,7 @@ module OsLib_ModelSimplification
         else
           cloned_load_def = load_def.clone(model).to_OtherEquipmentDefinition.get
           orig_design_level = cloned_load_def.designLevel.get
-          cloned_load_def.setWattsperSpaceFloorArea(load_inst.quantity * orig_design_level / (collection_floor_area * load_inst.multiplier))
+          cloned_load_def.setWattsperSpaceFloorArea(eff_num_spaces * orig_design_level / collection_floor_area)
           cloned_load_def.setName("#{cloned_load_def.name} - pre-normalized value was #{orig_design_level.round} W.")
           load_inst.setOtherEquipmentDefinition(cloned_load_def)
         end
@@ -615,19 +665,8 @@ module OsLib_ModelSimplification
         if collection_floor_area == 0
           runner.registerWarning("Can't determine building floor area to normalize #{load_def}. #{load_inst} will be asigned the the blended space without altering its values.")
         else
-
-          # calculate quantity for instance (doesn't exist as a method in api)
-          if source_space_or_space_type.class.to_s == 'OpenStudio::Model::SpaceType'
-            quantity = 0
-            source_space_or_space_type.spaces.each do |space|
-              quantity += space.multiplier
-            end
-          else
-            quantity = source_space_or_space_type.multiplier
-          end
-
           orig_design_level = load_inst.designFlowRate.get
-          load_inst.setFlowperSpaceFloorArea(quantity * orig_design_level / collection_floor_area)
+          load_inst.setFlowperSpaceFloorArea(eff_num_spaces * orig_design_level / collection_floor_area)
           load_inst.setName("#{load_inst.name} -  pre-normalized value was #{orig_design_level} m^3/sec")
         end
       elsif load_inst.designFlowRateCalculationMethod == "Flow/Area"

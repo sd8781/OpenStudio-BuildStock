@@ -8,42 +8,42 @@ class OpenStudio::Model::Model
   def add_cbecs_hvac_system(template, system_type, zones)
 
     case system_type
-    when 'PTAC w/ hot water heat'
+    when 'PTAC with hot water heat'
       add_hvac_system(template, 'PTAC', ht='NaturalGas', znht=nil, cl='Electricity', zones)
 
-    when 'PTAC w/ gas coil heat'
+    when 'PTAC with gas coil heat'
       add_hvac_system(template, 'PTAC', ht=nil, znht='NaturalGas', cl='Electricity', zones)
 
-    when 'PTAC w/ electric baseboard heat'
+    when 'PTAC with electric baseboard heat'
       add_hvac_system(template, 'PTAC', ht=nil, znht=nil, cl='Electricity', zones)
       add_hvac_system(template, 'Baseboards', ht='Electricity', znht=nil, cl=nil, zones)
 
-    when 'PTAC w/ no heat'
+    when 'PTAC with no heat'
       add_hvac_system(template, 'PTAC', ht=nil, znht=nil, cl='Electricity', zones)
 
-    when 'PTAC w/ district hot water heat'
+    when 'PTAC with district hot water heat'
       add_hvac_system(template, 'PTAC', ht='DistrictHeating', znht=nil, cl='Electricity', zones)
 
     when 'PTHP'
       add_hvac_system(template, 'PTHP', ht='Electricity', znht=nil, cl='Electricity', zones)
 
-    when 'PSZ-AC w/ gas coil heat'
+    when 'PSZ-AC with gas coil heat'
       add_hvac_system(template, 'PSZ-AC', ht='NaturalGas', znht=nil, cl='Electricity', zones)
 
-    when 'PSZ-AC w/ electric baseboard heat'
+    when 'PSZ-AC with electric baseboard heat'
       add_hvac_system(template, 'PSZ-AC', ht=nil, znht=nil, cl='Electricity', zones)
       add_hvac_system(template, 'Baseboards', ht='Electricity', znht=nil, cl=nil, zones)
 
-    when 'PSZ-AC w/ no heat'
+    when 'PSZ-AC with no heat'
       add_hvac_system(template, 'PSZ-AC', ht=nil, znht=nil, cl='Electricity', zones)
 
-    when 'PSZ-AC w/district hot water heat'
+    when 'PSZ-AC withdistrict hot water heat'
       add_hvac_system(template, 'PSZ-AC', ht='DistrictHeating', znht=nil, cl='Electricity', zones)
 
     when 'PSZ-HP'
       add_hvac_system(template, 'PSZ-HP', ht='Electricity', znht=nil, cl='Electricity', zones)
 
-    when 'Fan coil district chilled water w/ no heat'
+    when 'Fan coil district chilled water with no heat'
       add_hvac_system(template, 'Fan Coil', ht=nil, znht=nil, cl='DistrictCooling', zones)
 
     when 'Fan coil district chilled water and boiler'
@@ -57,87 +57,154 @@ class OpenStudio::Model::Model
       add_hvac_system(template, 'Fan Coil', ht=nil, znht=nil, cl='DistrictCooling', zones)
       add_hvac_system(template, 'Baseboards', ht='Electricity', znht=nil, cl=nil, zones)
 
-    when 'Fan coil district hot and cold water'
+    when 'Fan coil district hot and chilled water'
       add_hvac_system(template, 'Fan Coil', ht='DistrictHeating', znht=nil, cl='DistrictCooling', zones)
 
     when 'Fan coil district hot water and chiller'
       add_hvac_system(template, 'Fan Coil', ht='DistrictHeating', znht=nil, cl='Electricity', zones)
 
-    when 'Fan coil chiller w/ no heat'
+    when 'Fan coil chiller with no heat'
       add_hvac_system(template, 'Fan Coil', ht=nil, znht=nil, cl='Electricity', zones)
 
     when 'Baseboard district hot water heat'
       add_hvac_system(template, 'Baseboards', ht='DistrictHeating', znht=nil, cl=nil, zones)
 
-    when 'Baseboard district hot water heat w/ direct evap coolers'
+    when 'Baseboard district hot water heat with direct evap coolers'
       add_hvac_system(template, 'Baseboards', ht='DistrictHeating', znht=nil, cl=nil, zones)
       add_hvac_system(template, 'Evaporative Cooler', ht=nil, znht=nil, cl='Electricity', zones)
 
     when 'Baseboard electric heat'
       add_hvac_system(template, 'Baseboards', ht='Electricity', znht=nil, cl=nil, zones)
 
-    when 'Baseboard electric heat w/ direct evap coolers'
+    when 'Baseboard electric heat with direct evap coolers'
       add_hvac_system(template, 'Baseboards', ht='Electricity', znht=nil, cl=nil, zones)
       add_hvac_system(template, 'Evaporative Cooler', ht=nil, znht=nil, cl='Electricity', zones)
 
     when 'Baseboard hot water heat'
       add_hvac_system(template, 'Baseboards', ht='NaturalGas', znht=nil, cl=nil, zones)
 
-    when 'Baseboard hot water heat w/ direct evap coolers'
+    when 'Baseboard hot water heat with direct evap coolers'
       add_hvac_system(template, 'Baseboards', ht='NaturalGas', znht=nil, cl=nil, zones)
       add_hvac_system(template, 'Evaporative Cooler', ht=nil, znht=nil, cl='Electricity', zones)
 
-    when 'Window AC w/ no heat'
+    when 'Window AC with no heat'
       add_hvac_system(template, 'Window AC', ht=nil, znht=nil, cl='Electricity', zones)
 
-    when 'Window AC w/ forced air furnace'
+    when 'Window AC with forced air furnace'
       add_hvac_system(template, 'Window AC', ht=nil, znht=nil, cl='Electricity', zones)
-      # TODO Forced air furnace
+      add_hvac_system(template, 'Forced Air Furnace', ht='NaturalGas', znht=nil, cl=nil, zones)
 
-    when 'Window AC w/ district hot water baseboard heat'
+    when 'Window AC with district hot water baseboard heat'
       add_hvac_system(template, 'Window AC', ht=nil, znht=nil, cl='Electricity', zones)
       add_hvac_system(template, 'Baseboards', ht='DistrictHeating', znht=nil, cl=nil, zones)
 
-    when 'Window AC w/ hot water baseboard heat'
+    when 'Window AC with hot water baseboard heat'
       add_hvac_system(template, 'Window AC', ht=nil, znht=nil, cl='Electricity', zones)
       add_hvac_system(template, 'Baseboards', ht='NaturalGas', znht=nil, cl=nil, zones)
 
-    when 'Window AC w/ electric baseboard heat'
+    when 'Window AC with electric baseboard heat'
       add_hvac_system(template, 'Window AC', ht=nil, znht=nil, cl='Electricity', zones)
       add_hvac_system(template, 'Baseboards', ht='Electricity', znht=nil, cl=nil, zones)
 
-    when 'Window AC w/ unit heaters'
+    when 'Window AC with unit heaters'
       add_hvac_system(template, 'Window AC', ht=nil, znht=nil, cl='Electricity', zones)
       add_hvac_system(template, 'Unit Heaters', ht='NaturalGas', znht=nil, cl=nil, zones)
 
     when 'Direct evap coolers'
       add_hvac_system(template, 'Evaporative Cooler', ht=nil, znht=nil, cl='Electricity', zones)
 
-    when 'Direct evap coolers w/ unit heaters'
+    when 'Direct evap coolers with unit heaters'
       add_hvac_system(template, 'Evaporative Cooler', ht=nil, znht=nil, cl='Electricity', zones)
       add_hvac_system(template, 'Unit Heaters', ht='NaturalGas', znht=nil, cl=nil, zones)
 
     when 'Unit heaters'
       add_hvac_system(template, 'Unit Heaters', ht='NaturalGas', znht=nil, cl=nil, zones)
-  
-    when 'Heat pump heating w/ no cooling'
-      # TODO heat-only heat pump
-    
-    when 'Heat pump heating w/ direct evap cooler'
-      # TODO heat-only heat pump
+
+    when 'Heat pump heat with no cooling'
+      add_hvac_system(template, 'Residential Air Source Heat Pump', ht=nil, znht=nil, cl='Electricity', zones)
+
+    when 'Heat pump heat with direct evap cooler'
+      # add_hvac_system(template, 'Residential Air Source Heat Pump', ht=nil, znht=nil, cl='Electricity', zones)
+      # Using PTHP to represent zone heat pump for this configuration
+      # because only one airloop may be connected to each thermal zone.
+      add_hvac_system(template, 'PTHP', ht='Electricity', znht=nil, cl='Electricity', zones)
+      # disable the cooling coils in all the PTHPs
+      getZoneHVACPackagedTerminalHeatPumps.each do |pthp|
+        clg_coil = pthp.heatingCoil.to_CoilHeatingDXSingleSpeed.get
+        clg_coil.setAvailabilitySchedule(alwaysOffDiscreteSchedule)
+      end
       add_hvac_system(template, 'Evaporative Cooler', ht=nil, znht=nil, cl='Electricity', zones)
 
-    when 'VAV w/ reheat'
+    when 'VAV with reheat'
       add_hvac_system(template, 'VAV Reheat', ht='NaturalGas', znht='NaturalGas', cl='Electricity', zones)
 
-    when 'PVAV w/ reheat', 'Packaged VAV Air Loop with Boiler' # second enumeration for backwards compatibility with Tenant Star project
+    when 'VAV with PFP boxes'
+      add_hvac_system(template, 'VAV PFP Boxes', ht='NaturalGas', znht='NaturalGas', cl='Electricity', zones)
+
+    when 'VAV with gas reheat'
+      add_hvac_system(template, 'VAV Gas Reheat', ht='NaturalGas', ht='NaturalGas', cl='Electricity', zones)
+
+    when 'VAV with zone unit heaters'
+      add_hvac_system(template, 'VAV No Reheat', ht='NaturalGas', znht=nil, cl='Electricity', zones)
+      add_hvac_system(template, 'Unit Heaters', ht='NaturalGas', znht=nil, cl=nil, zones)
+
+    when 'VAV with electric baseboard heat'
+      add_hvac_system(template, 'VAV No Reheat', ht='NaturalGas', znht=nil, cl='Electricity', zones)
+      add_hvac_system(template, 'Baseboards', ht='Electricity', znht=nil, cl=nil, zones)
+
+    when 'VAV cool with zone heat pump heat'
+      add_hvac_system(template, 'VAV No Reheat', ht='NaturalGas', znht=nil, cl='Electricity', zones)
+      # add_hvac_system(template, 'Residential Air Source Heat Pump', ht=nil, znht=nil, cl='Electricity', zones)
+      # Using PTHP to represent zone heat pump for this configuration
+      # because only one airloop may be connected to each thermal zone.
+      add_hvac_system(template, 'PTHP', ht='Electricity', znht=nil, cl='Electricity', zones)
+      # disable the cooling coils in all the PTHPs
+      getZoneHVACPackagedTerminalHeatPumps.each do |pthp|
+        clg_coil = pthp.heatingCoil.to_CoilHeatingDXSingleSpeed.get
+        clg_coil.setAvailabilitySchedule(alwaysOffDiscreteSchedule)
+      end
+
+    when 'PVAV with reheat', 'Packaged VAV Air Loop with Boiler' # second enumeration for backwards compatibility with Tenant Star project
       add_hvac_system(template, 'PVAV Reheat', ht='NaturalGas', znht='NaturalGas', cl='Electricity', zones)
 
-    when 'PVAV w/ PFP boxes'
+    when 'PVAV with PFP boxes'
       add_hvac_system(template, 'PVAV PFP Boxes', ht='Electricity', znht='Electricity', cl='Electricity', zones)
 
     when 'Residential forced air'
       add_hvac_system(template, 'Unit Heaters', ht='NaturalGas', znht=nil, cl=nil, zones)
+
+    when 'Residential forced air cooling hot water baseboard heat'
+      add_hvac_system(template, 'Residential AC', ht=nil, znht=nil, cl='Electricity', zones)
+      add_hvac_system(template, 'Baseboards', ht='NaturalGas', znht=nil, cl=nil, zones)
+
+    when 'Residential forced air withdistrict hot water'
+      add_hvac_system(template, 'Residential AC', ht=nil, znht=nil, cl='Electricity', zones)
+
+    when 'Residential heat pump'
+      add_hvac_system(template, 'Residential Air Source Heat Pump', ht='Electricity', znht=nil, cl='Electricity', zones)
+
+    when 'Forced air furnace'
+      add_hvac_system(template, 'Forced Air Furnace', ht='NaturalGas', znht=nil, cl=nil, zones)
+
+    when 'Forced air furnace district chilled water fan coil'
+      add_hvac_system(template, 'Forced Air Furnace', ht='NaturalGas', znht=nil, cl=nil, zones)
+
+    when 'Forced air furnace direct evap cooler'
+      # add_hvac_system(template, 'Forced Air Furnace', ht='NaturalGas', znht=nil, cl=nil, zones)
+      # Using unit heater to represent forced air furnace for this configuration
+      # because only one airloop may be connected to each thermal zone.
+      add_hvac_system(template, 'Unit Heaters', ht='NaturalGas', znht=nil, cl=nil, zones)
+      add_hvac_system(template, 'Evaporative Cooler', ht=nil, znht=nil, cl='Electricity', zones)
+
+    when 'Residential AC with no heat'
+      add_hvac_system(template, 'Residential AC', ht=nil, znht=nil, cl='Electricity', zones)
+
+    when 'Residential AC with electric baseboard heat'    
+      add_hvac_system(template, 'Residential AC', ht=nil, znht=nil, cl='Electricity', zones)
+      add_hvac_system(template, 'Baseboards', ht='Electricity', znht=nil, cl=nil, zones)
+
+    else
+      puts "HVAC system type '#{system_type}' not recognized"
 
     end
 
