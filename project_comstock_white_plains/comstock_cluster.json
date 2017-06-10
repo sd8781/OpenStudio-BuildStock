@@ -1,5 +1,5 @@
 {
-  "cluster_name": "resstock",
+  "cluster_name": "comstock",
   "connected": false,
   "server_instance_type": "c3.8xlarge",
   "worker_instance_type": "c3.8xlarge",
