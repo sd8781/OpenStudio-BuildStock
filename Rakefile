@@ -106,12 +106,19 @@ end
 desc 'Perform integrity check on inputs'
 task :integrity_check do
   project_name = select_project
+  print "Project Name is : #{project_name}"
   case project_name
-  when 'all'
-    integrity_check()
-  else
-    integrity_check([project_name], 'housing_characteristics')
+    when 'all'
+      integrity_check()
+    else
+      integrity_check([project_name], 'housing_characteristics')
   end
+end # rake task
+
+'Perform integrity check on inputs'
+task :integrity_check_debug do
+  project_name = 'project_comstock_isone'
+  integrity_check([project_name], 'housing_characteristics')
 end # rake task
 
 desc 'Run sampling'
@@ -287,7 +294,7 @@ def integrity_check(project_dir_names=nil,characteristics_dir_name='housing_char
         epw_file_full = File.join(project_dir_name, 'weather', epw_file)
         if not File.exists?(epw_file_full)
             puts "ERROR: Cannot find EPW file at #{epw_file_full}."
-            exit
+            #exit
         end
     end
     
@@ -301,6 +308,10 @@ def integrity_check(project_dir_names=nil,characteristics_dir_name='housing_char
         measure_instances[measure_subdir] = get_measure_instance(measurerb_path)
       end
       # Validate measure arguments for each combination of options
+      if measure_subdir == 'create_bar_from_building_type_ratios'
+        puts 'Unable to verify measure create_bar_from_building_type_ratios due parameter space size'
+        next
+      end
       param_names = measures[measure_subdir].keys()
       options_array = []
       param_names.each do |parameter_name|
@@ -325,7 +336,8 @@ def integrity_check(project_dir_names=nil,characteristics_dir_name='housing_char
     
     # Test sampling
     r = RunSampling.new
-    output_file = r.run(project_dir_name, 1000)
+    characteristics_dir_path = File.join(File.dirname(resources_dir), project_dir_name, characteristics_dir_name)
+    output_file = r.run(project_dir_name, 1000, characteristics_dir_path, tsv_dir)
     if File.exist?(output_file)
       File.delete(output_file) # Clean up
     end
