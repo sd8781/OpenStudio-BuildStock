@@ -2,8 +2,8 @@
   <schema_version>3.0</schema_version>
   <name>simulation_output_report</name>
   <uid>fc337100-8634-404e-8966-01243d292a79</uid>
-  <version_id>a1cc25aa-f4f2-4c63-90ae-0fa662042b30</version_id>
-  <version_modified>20171211T165135Z</version_modified>
+  <version_id>fd469e0a-db6f-429c-8e3b-cf9d2e44e329</version_id>
+  <version_modified>20180111T184255Z</version_modified>
   <xml_checksum>2C8A3EEF</xml_checksum>
   <class_name>SimulationOutputReport</class_name>
   <display_name>Simulation Output Report</display_name>
@@ -366,6 +366,12 @@
   </attributes>
   <files>
     <file>
+      <filename>simulation_output_report_test.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>test</usage_type>
+      <checksum>E5807012</checksum>
+    </file>
+    <file>
       <filename>SFD_1story_FB_UA_GRG_MSHP_FuelTanklessWH.osm</filename>
       <filetype>osm</filetype>
       <usage_type>test</usage_type>
@@ -426,12 +432,6 @@
       <checksum>B2BBF40A</checksum>
     </file>
     <file>
-      <filename>simulation_output_report_test.rb</filename>
-      <filetype>rb</filetype>
-      <usage_type>test</usage_type>
-      <checksum>E5807012</checksum>
-    </file>
-    <file>
       <version>
         <software_program>OpenStudio</software_program>
         <identifier>1.1.2</identifier>
@@ -440,7 +440,7 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>420F6F36</checksum>
+      <checksum>29E90E5B</checksum>
     </file>
   </files>
 </measure>

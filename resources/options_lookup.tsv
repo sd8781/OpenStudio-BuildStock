@@ -477,26 +477,60 @@ Usage Level	Low
 Usage Level	Medium																																														
 Usage Level	High																																														
 Usage Level	Average																																														
+Geometry Building Type	Single Family Detached	ResidentialGeometrySingleFamilyDetached																																													
+Geometry Building Type	Single Family Attached	ResidentialGeometrySingleFamilyAttached																																													
+Geometry Building Type	Multifamily	ResidentialGeometryMultifamily																																													
 Geometry Foundation Type	Pier & Beam	ResidentialGeometrySingleFamilyDetached	foundation_type=pier and beam	foundation_height=4																																											
 Geometry Foundation Type	Unheated Basement	ResidentialGeometrySingleFamilyDetached	foundation_type=unfinished basement	foundation_height=8																																											
+		ResidentialGeometrySingleFamilyAttached	foundation_type=unfinished basement	foundation_height=8																																											
+		ResidentialGeometryMultifamily	foundation_type=unfinished basement	foundation_height=8																																											
 Geometry Foundation Type	Heated Basement	ResidentialGeometrySingleFamilyDetached	foundation_type=finished basement	foundation_height=8																																											
+		ResidentialGeometrySingleFamilyAttached	foundation_type=finished basement	foundation_height=8																																											
 Geometry Foundation Type	Crawl	ResidentialGeometrySingleFamilyDetached	foundation_type=crawlspace	foundation_height=4																																											
+		ResidentialGeometrySingleFamilyAttached	foundation_type=crawlspace	foundation_height=4																																											
+		ResidentialGeometryMultifamily	foundation_type=crawlspace	foundation_height=4																																											
 Geometry Foundation Type	Slab	ResidentialGeometrySingleFamilyDetached	foundation_type=slab	foundation_height=0																																											
+		ResidentialGeometrySingleFamilyAttached	foundation_type=slab	foundation_height=0																																											
+		ResidentialGeometryMultifamily	foundation_type=slab	foundation_height=0																																											
 Geometry Heated Basement	No																																														
 Geometry Heated Basement	Yes																																														
 Geometry Stories	1	ResidentialGeometrySingleFamilyDetached	num_floors=1																																												
+		ResidentialGeometrySingleFamilyAttached	num_floors=1	num_units=3	has_rear_units=false																																										
+		ResidentialGeometryMultifamily	num_floors=1	num_units_per_floor=4																																											
 Geometry Stories	2+	ResidentialGeometrySingleFamilyDetached	num_floors=2																																												
+		ResidentialGeometrySingleFamilyAttached	num_floors=2	num_units=6	has_rear_units=true																																										
+		ResidentialGeometryMultifamily	num_floors=3	num_units_per_floor=4																																											
 Geometry Garage	None	ResidentialGeometrySingleFamilyDetached	garage_width=0	garage_depth=24	garage_protrusion=0.5	garage_pos=Right																																									
 Geometry Garage	1 Car	ResidentialGeometrySingleFamilyDetached	garage_width=12	garage_depth=24	garage_protrusion=0.5	garage_pos=Right																																									
 Geometry Garage	2 Car	ResidentialGeometrySingleFamilyDetached	garage_width=24	garage_depth=24	garage_protrusion=0.5	garage_pos=Right																																									
 Geometry Garage	3 Car	ResidentialGeometrySingleFamilyDetached	garage_width=36	garage_depth=24	garage_protrusion=0.5	garage_pos=Right																																									
-Geometry House Size	0-1499	ResidentialGeometrySingleFamilyDetached	total_ffa=1000	living_height=8	aspect_ratio=1.8	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																							
+Geometry House Size	0-499	ResidentialGeometrySingleFamilyDetached	total_ffa=400	wall_height=8	aspect_ratio=1.8	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																							
+		ResidentialGeometrySingleFamilyAttached	unit_ffa=400	wall_height=8	unit_aspect_ratio=1.8	offset=0	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																						
+		ResidentialGeometryMultifamily	unit_ffa=400	wall_height=8	unit_aspect_ratio=1.8	corridor_position=Double-Loaded Interior	corridor_width=10	inset_width=0	inset_depth=0	inset_position=Right	balcony_depth=0																																				
+		ResidentialGeometryNumBedsAndBaths	num_bedrooms=1	num_bathrooms=1																																											
+Geometry House Size	500-999	ResidentialGeometrySingleFamilyDetached	total_ffa=750	wall_height=8	aspect_ratio=1.8	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																							
+		ResidentialGeometrySingleFamilyAttached	unit_ffa=750	wall_height=8	unit_aspect_ratio=1.8	offset=0	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																						
+		ResidentialGeometryMultifamily	unit_ffa=750	wall_height=8	unit_aspect_ratio=1.8	corridor_position=Double-Loaded Interior	corridor_width=10	inset_width=0	inset_depth=0	inset_position=Right	balcony_depth=0																																				
+		ResidentialGeometryNumBedsAndBaths	num_bedrooms=2	num_bathrooms=1																																											
+Geometry House Size	1000-1499	ResidentialGeometrySingleFamilyDetached	total_ffa=1250	wall_height=8	aspect_ratio=1.8	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																							
+		ResidentialGeometrySingleFamilyAttached	unit_ffa=1250	wall_height=8	unit_aspect_ratio=1.8	offset=0	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																						
+		ResidentialGeometryMultifamily	unit_ffa=1250	wall_height=8	unit_aspect_ratio=1.8	corridor_position=Double-Loaded Interior	corridor_width=10	inset_width=0	inset_depth=0	inset_position=Right	balcony_depth=0																																				
 		ResidentialGeometryNumBedsAndBaths	num_bedrooms=3	num_bathrooms=1.5																																											
-Geometry House Size	1500-2499	ResidentialGeometrySingleFamilyDetached	total_ffa=2000	living_height=8	aspect_ratio=1.8	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																							
+Geometry House Size	0-1499	ResidentialGeometrySingleFamilyDetached	total_ffa=1000	wall_height=8	aspect_ratio=1.8	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																							
+		ResidentialGeometrySingleFamilyAttached	unit_ffa=1000	wall_height=8	unit_aspect_ratio=1.8	offset=0	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																						
+		ResidentialGeometryMultifamily	unit_ffa=1000	wall_height=8	unit_aspect_ratio=1.8	corridor_position=Double-Loaded Interior	corridor_width=10	inset_width=0	inset_depth=0	inset_position=Right	balcony_depth=0																																				
+		ResidentialGeometryNumBedsAndBaths	num_bedrooms=3	num_bathrooms=1.5																																											
+Geometry House Size	1500-2499	ResidentialGeometrySingleFamilyDetached	total_ffa=2000	wall_height=8	aspect_ratio=1.8	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																							
+		ResidentialGeometrySingleFamilyAttached	unit_ffa=2000	wall_height=8	unit_aspect_ratio=1.8	offset=0	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																						
+		ResidentialGeometryMultifamily	unit_ffa=2000	wall_height=8	unit_aspect_ratio=1.8	corridor_position=Double-Loaded Interior	corridor_width=10	inset_width=0	inset_depth=0	inset_position=Right	balcony_depth=0																																				
 		ResidentialGeometryNumBedsAndBaths	num_bedrooms=3	num_bathrooms=2																																											
-Geometry House Size	2500-3499	ResidentialGeometrySingleFamilyDetached	total_ffa=3000	living_height=8	aspect_ratio=1.8	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																							
+Geometry House Size	2500-3499	ResidentialGeometrySingleFamilyDetached	total_ffa=3000	wall_height=8	aspect_ratio=1.8	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																							
+		ResidentialGeometrySingleFamilyAttached	unit_ffa=3000	wall_height=8	unit_aspect_ratio=1.8	offset=0	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																						
+		ResidentialGeometryMultifamily	unit_ffa=3000	wall_height=8	unit_aspect_ratio=1.8	corridor_position=Double-Loaded Interior	corridor_width=10	inset_width=0	inset_depth=0	inset_position=Right	balcony_depth=0																																				
 		ResidentialGeometryNumBedsAndBaths	num_bedrooms=4	num_bathrooms=2.5																																											
-Geometry House Size	3500+	ResidentialGeometrySingleFamilyDetached	total_ffa=4500	living_height=8	aspect_ratio=1.8	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																							
+Geometry House Size	3500+	ResidentialGeometrySingleFamilyDetached	total_ffa=4500	wall_height=8	aspect_ratio=1.8	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																							
+		ResidentialGeometrySingleFamilyAttached	unit_ffa=4500	wall_height=8	unit_aspect_ratio=1.8	offset=0	attic_type=unfinished attic	roof_type=gable	roof_pitch=6:12																																						
+		ResidentialGeometryMultifamily	unit_ffa=4500	wall_height=8	unit_aspect_ratio=1.8	corridor_position=Double-Loaded Interior	corridor_width=10	inset_width=0	inset_depth=0	inset_position=Right	balcony_depth=0																																				
 		ResidentialGeometryNumBedsAndBaths	num_bedrooms=4	num_bathrooms=3																																											
 Occupants	Auto	ResidentialGeometryNumOccupants	num_occ=auto	occ_gain=384.0	sens_frac=0.573	lat_frac=0.427	"weekday_sch=1.00000, 1.00000, 1.00000, 1.00000, 1.00000, 1.00000, 1.00000, 0.88310, 0.40861, 0.24189, 0.24189, 0.24189, 0.24189, 0.24189, 0.24189, 0.24189, 0.29498, 0.55310, 0.89693, 0.89693, 0.89693, 1.00000, 1.00000, 1.00000"	"weekend_sch=1.00000, 1.00000, 1.00000, 1.00000, 1.00000, 1.00000, 1.00000, 0.88310, 0.40861, 0.24189, 0.24189, 0.24189, 0.24189, 0.24189, 0.24189, 0.24189, 0.29498, 0.55310, 0.89693, 0.89693, 0.89693, 1.00000, 1.00000, 1.00000"	"monthly_sch=1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0"																																						
 Orientation	North	ResidentialGeometryOrientation	orientation=180																																												
@@ -563,6 +597,8 @@ Insulation Unfinished Attic	"Roof R-19, Unvented"	ResidentialConstructionsCeilin
 		ResidentialAirflow	unfinished_attic_sla=0																																												
 Insulation Unfinished Attic	"Roof R-49, Unvented"	ResidentialConstructionsCeilingsRoofsUnfinishedAttic	ceil_r=0	ceil_grade=I	ceil_ins_thick_in=0	ceil_ff=0.07	ceil_joist_height=3.5	roof_cavity_r=49	roof_cavity_grade=I	roof_cavity_ins_thick_in=6.25	roof_ff=0.07	roof_fram_thick_in=7.25																																			
 		ResidentialAirflow	unfinished_attic_sla=0																																												
+Insulation Finished Roof	Uninsulated	ResidentialConstructionsCeilingsRoofsFinishedRoof	cavity_r=0	install_grade=I	cavity_depth=9.25	ins_fills_cavity=false	framing_factor=0.07																																								
+Insulation Finished Roof	R-30	ResidentialConstructionsCeilingsRoofsFinishedRoof	cavity_r=30	install_grade=I	cavity_depth=9.25	ins_fills_cavity=true	framing_factor=0.07																																								
 Roof Sheathing	3/4 in. OSB	ResidentialConstructionsCeilingsRoofsSheathing	osb_thick_in=0.75	rigid_r=0	rigid_thick_in=0																																										
 Roof Material	"Asphalt Shingles, Dark"	ResidentialConstructionsCeilingsRoofsRoofingMaterial	solar_abs=0.92	emissivity=0.91	material=asphalt shingles	color=dark																																									
 Roof Material	"Asphalt Shingles, Medium"	ResidentialConstructionsCeilingsRoofsRoofingMaterial	solar_abs=0.85	emissivity=0.91	material=asphalt shingles	color=medium																																									

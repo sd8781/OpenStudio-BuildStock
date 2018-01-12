@@ -1,4 +1,4 @@
-require 'openstudio'
+require 'openstudio' 
 
 class BuildingCharacteristicsReport < OpenStudio::Measure::ReportingMeasure
 

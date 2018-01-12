@@ -1,2 +1,4 @@
-Option=None	Option=1 Car
-0.5	0.5
+Dependency=Geometry Building Type	Option=None	Option=1 Car
+Single Family Detached	0.5	0.5
+Single Family Attached	1	0
+Multifamily	1	0

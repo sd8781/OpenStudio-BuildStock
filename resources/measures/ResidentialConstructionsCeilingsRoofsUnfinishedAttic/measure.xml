@@ -2,8 +2,8 @@
   <schema_version>3.0</schema_version>
   <name>process_constructions_ceilings_roofs_unfinished_attic</name>
   <uid>235ba3ce-dd83-4287-aa0e-435dc1cbf1a7</uid>
-  <version_id>9832805c-f570-4d10-a466-cb3d8c23ac9f</version_id>
-  <version_modified>20171212T162943Z</version_modified>
+  <version_id>a2350e79-f9ae-45c6-bbe1-9bb0dca50bee</version_id>
+  <version_modified>20180111T012553Z</version_modified>
   <xml_checksum>1E963D9C</xml_checksum>
   <class_name>ProcessConstructionsCeilingsRoofsUnfinishedAttic</class_name>
   <display_name>Set Residential Ceilings/Roofs - Unfinished Attic Constructions</display_name>
@@ -194,34 +194,34 @@
       <checksum>13D38702</checksum>
     </file>
     <file>
-      <filename>SFD_2000sqft_2story_FB_UA_Denver.osm</filename>
-      <filetype>osm</filetype>
-      <usage_type>test</usage_type>
-      <checksum>20D6C415</checksum>
-    </file>
-    <file>
-      <filename>SFD_2000sqft_2story_SL_FA.osm</filename>
-      <filetype>osm</filetype>
-      <usage_type>test</usage_type>
-      <checksum>F7291574</checksum>
-    </file>
-    <file>
-      <filename>geometry.rb</filename>
+      <filename>unit_conversions.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>A9382DBC</checksum>
+      <checksum>31924A51</checksum>
     </file>
     <file>
       <filename>constants.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>022C15E2</checksum>
+      <checksum>9F848AA6</checksum>
     </file>
     <file>
-      <filename>unit_conversions.rb</filename>
+      <filename>SFD_2000sqft_2story_FB_UA_Denver.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>27052533</checksum>
+    </file>
+    <file>
+      <filename>SFD_2000sqft_2story_SL_FA.osm</filename>
+      <filetype>osm</filetype>
+      <usage_type>test</usage_type>
+      <checksum>A5E3AA2E</checksum>
+    </file>
+    <file>
+      <filename>geometry.rb</filename>
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
-      <checksum>31924A51</checksum>
+      <checksum>B0C5E88A</checksum>
     </file>
   </files>
 </measure>

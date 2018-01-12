@@ -2,8 +2,8 @@
   <schema_version>3.0</schema_version>
   <name>building_characteristics_report</name>
   <uid>90eecbe2-d8e2-47db-9079-5d9029fb3e67</uid>
-  <version_id>cae94613-93e3-4a56-ae85-552b25e6c26c</version_id>
-  <version_modified>20171110T171847Z</version_modified>
+  <version_id>86f04943-c19f-482c-aab8-60322b4c9fc7</version_id>
+  <version_modified>20180111T020419Z</version_modified>
   <xml_checksum>2EA103AF</xml_checksum>
   <class_name>BuildingCharacteristicsReport</class_name>
   <display_name>Building Characteristics Report</display_name>
@@ -64,6 +64,13 @@
       <name>usage_level</name>
       <display_name>usage_level</display_name>
       <short_name>usage_level</short_name>
+      <type>String</type>
+      <model_dependent>false</model_dependent>
+    </output>
+    <output>
+      <name>geometry_building_type</name>
+      <display_name>geometry_building_type</display_name>
+      <short_name>geometry_building_type</short_name>
       <type>String</type>
       <model_dependent>false</model_dependent>
     </output>
@@ -640,7 +647,7 @@
       <filename>measure.rb</filename>
       <filetype>rb</filetype>
       <usage_type>script</usage_type>
-      <checksum>A34B72B5</checksum>
+      <checksum>3924C5CB</checksum>
     </file>
   </files>
 </measure>

@@ -1,2 +1,4 @@
-Option=1500-2499	Option=2500-3499	Option=3500+
-0.333333333	0.333333333	0.333333333
+Dependency=Geometry Building Type	Option=0-499	Option=500-999	Option=1000-1499	Option=1500-2499	Option=2500-3499	Option=3500+
+Single Family Detached	0	0	0	0.333333333	0.333333333	0.333333333
+Single Family Attached	0.25	0.25	0.25	0.25	0	0
+Multifamily	0.333333333	0.333333333	0.333333333	0	0	0

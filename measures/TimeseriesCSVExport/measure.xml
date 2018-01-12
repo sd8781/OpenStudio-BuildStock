@@ -2,8 +2,8 @@
   <schema_version>3.0</schema_version>
   <name>timeseries_csv_export</name>
   <uid>2a3442c1-944d-4e91-9e11-11e0cf368c64</uid>
-  <version_id>ab17aba8-ba25-42d4-a176-65a2548e1de4</version_id>
-  <version_modified>20171215T220211Z</version_modified>
+  <version_id>4c818bfe-6fde-4f0c-9b73-1c8d06b3530d</version_id>
+  <version_modified>20180112T012641Z</version_modified>
   <xml_checksum>15BF4E57</xml_checksum>
   <class_name>TimeseriesCSVExport</class_name>
   <display_name>Timeseries CSV Export</display_name>
@@ -121,12 +121,6 @@
       <checksum>BE5BF810</checksum>
     </file>
     <file>
-      <filename>constants.rb</filename>
-      <filetype>rb</filetype>
-      <usage_type>resource</usage_type>
-      <checksum>022C15E2</checksum>
-    </file>
-    <file>
       <version>
         <software_program>OpenStudio</software_program>
         <identifier>2.0.5</identifier>
@@ -142,6 +136,12 @@
       <filetype>rb</filetype>
       <usage_type>resource</usage_type>
       <checksum>82988A63</checksum>
+    </file>
+    <file>
+      <filename>constants.rb</filename>
+      <filetype>rb</filetype>
+      <usage_type>resource</usage_type>
+      <checksum>9F848AA6</checksum>
     </file>
   </files>
 </measure>
