@@ -8,17 +8,18 @@ require 'pathname'
 
 class BuildExistingModelTest < MiniTest::Test
 
-  def test_1
+  def test_create_results_csv_from_register_values
     require 'parallel'
     runners = []
-    Parallel.each([*1..4], in_threads: 8) do |building_id|
+    num_rows = 10
+    Parallel.each([*1..num_rows], in_threads: 8) do |building_id|
+      puts "#{building_id} / #{num_rows}"
       args_hash = {}
       args_hash["workflow_json"] = "measure-info.json"
       args_hash["number_of_buildings_represented"] = "80000000"
       args_hash["building_id"] = "#{building_id}"
       runners << _test_measure(args_hash)
     end
-    # TODO: register capacities in sizing measure
     CSV.open(File.join(File.dirname(__FILE__), "results.csv"), "w") do |csv|
       row = []
       result = runners[0].result
@@ -50,7 +51,6 @@ class BuildExistingModelTest < MiniTest::Test
 
     # create an instance of a runner
     runner = OpenStudio::Measure::OSRunner.new(OpenStudio::WorkflowJSON.new)
-    # TODO: need to add analysis to runner, and then can remove the return true
     
     model = OpenStudio::Model::Model.new
     

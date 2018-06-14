@@ -5,7 +5,7 @@ require 'csv'
 require 'openstudio'
 
 # start the measure
-class BuildExistingModel < OpenStudio::Ruleset::ModelUserScript
+class BuildExistingModel < OpenStudio::Measure::ModelMeasure
 
   # human readable name
   def name
@@ -24,19 +24,19 @@ class BuildExistingModel < OpenStudio::Ruleset::ModelUserScript
 
   # define the arguments that the user will input
   def arguments(model)
-    args = OpenStudio::Ruleset::OSArgumentVector.new
+    args = OpenStudio::Measure::OSArgumentVector.new
 
-    building_id = OpenStudio::Ruleset::OSArgument.makeIntegerArgument("building_id", true)
+    building_id = OpenStudio::Measure::OSArgument.makeIntegerArgument("building_id", true)
     building_id.setDisplayName("Building ID")
     building_id.setDescription("The building number (between 1 and the number of samples).")
     args << building_id
     
-    workflow_json = OpenStudio::Ruleset::OSArgument.makeStringArgument("workflow_json", false)
+    workflow_json = OpenStudio::Measure::OSArgument.makeStringArgument("workflow_json", false)
     workflow_json.setDisplayName("Workflow JSON")
     workflow_json.setDescription("The name of the JSON file (in the resources dir) that dictates the order in which measures are to be run. If not provided, the order specified in resources/options_lookup.tsv will be used.")
     args << workflow_json
     
-    number_of_buildings_represented = OpenStudio::Ruleset::OSArgument.makeIntegerArgument("number_of_buildings_represented", false)
+    number_of_buildings_represented = OpenStudio::Measure::OSArgument.makeIntegerArgument("number_of_buildings_represented", false)
     number_of_buildings_represented.setDisplayName("Number of Buildings Represented")
     number_of_buildings_represented.setDescription("The total number of buildings represented by the existing building models.")
     args << number_of_buildings_represented
@@ -103,7 +103,7 @@ class BuildExistingModel < OpenStudio::Ruleset::ModelUserScript
       return false
     end
 
-    return true # TODO: remove
+    return true
 
     # Determine weight
     if not number_of_buildings_represented.nil?
