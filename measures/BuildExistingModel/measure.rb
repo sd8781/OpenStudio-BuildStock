@@ -98,11 +98,13 @@ class BuildExistingModel < OpenStudio::Ruleset::ModelUserScript
         end
 
     end
-    
+
     if not apply_measures(measures_dir, measures, runner, model, workflow_json, "measures.osw", true)
       return false
     end
-    
+
+    return true # TODO: remove
+
     # Determine weight
     if not number_of_buildings_represented.nil?
         total_samples = nil
