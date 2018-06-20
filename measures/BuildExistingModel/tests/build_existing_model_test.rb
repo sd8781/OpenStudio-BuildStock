@@ -8,10 +8,12 @@ require 'pathname'
 
 class BuildExistingModelTest < MiniTest::Test
 
-  def test_create_results_csv_from_register_values
+  def test_create_results_csv_from_registered_values
+    # this test applies all the residential measures using the build existing model measure
+    # but exports the registered values to csv BEFORE running any simulations
     require 'parallel'
     runners = []
-    num_rows = 10
+    num_rows = 16
     Parallel.each([*1..num_rows], in_threads: 8) do |building_id|
       puts "#{building_id} / #{num_rows}"
       args_hash = {}

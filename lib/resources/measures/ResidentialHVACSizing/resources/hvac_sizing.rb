@@ -4298,6 +4298,7 @@ class HVACSizing
     
     runner.registerValue("hvac_cooling_capacity_w", UnitConversions.convert(unit_final.Cool_Capacity,"Btu/hr","W"))
     runner.registerValue("hvac_heating_capacity_w", UnitConversions.convert(unit_final.Heat_Capacity,"Btu/hr","W"))
+    runner.registerValue("hvac_heating_supp_capacity_w", UnitConversions.convert(unit_final.Heat_Capacity_Supp,"Btu/hr","W"))
     
     # Cooling coil
     if clg_coil.is_a? OpenStudio::Model::CoilCoolingDXSingleSpeed

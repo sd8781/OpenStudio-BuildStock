@@ -206,6 +206,12 @@ def run_measure(model, measure, argument_map, runner)
               skip = true
             end
           end
+        elsif arg_child.name.include? "hvac_heating_supp_capacity_w"
+          runner.result.stepValues.each do |arg|
+            if arg.name.to_s.include? "hvac_heating_supp_capacity_w"
+              skip = true
+            end
+          end
         else
           skip = true
         end
